@@ -1,5 +1,6 @@
 <script>
 	// import rohan from '/rohan.jpg'
+	import Chart from '../components/chart.svelte'
 </script>
 
 <h1>Pet Care Reminder App</h1>
@@ -10,6 +11,7 @@
 		<li><a href="/calendar">Calendar</a></li>
 	</ul>
 </nav>
+<!--*----------DESCRIPTION DIV------------->
 <h1>Pet Profile</h1>
 <!-- <img src={rohan} alt="Rohan"> -->
 <div><p>THIS IS AN IMAGE</p></div>
@@ -18,11 +20,15 @@
 	<h3>Age: *dynamically insert age*</h3>
 	<h3>Sex: *dynamically insert sex*</h3>
 </div>
+<!--*----------------------------------->
+<!--*----------FEEDING DIV------------->
 <div>
 	<h3>Food Instructions</h3>
 	<p>(insert)AM</p>
 	<p>(insert)PM</p>
 </div>
+<!--*----------------------------------->
+<!--*----------MEDICATION DIV------------->
 <div>
 	<h3>Medications</h3>
 	<ul>
@@ -31,14 +37,25 @@
 		<li>*insert meds here</li>
 	</ul>
 </div>
+<!--*----------------------------------->
+<!--*------------EXERCISE TRACKER DIV-------------->
 <div>
 	<h3>Exercise Tracker</h3>
-    <input type="text" placeholder="Exercise Name" >
-    <button>Add</button>
-    <li>
-        <!--add input functionality -->
-        *Insert Date* *Insert Time*  *Insert exercise Name*
-        <button>Edit</button>
-        <button>Delete</button>
-    </li>
+	<input type="text" placeholder="Exercise Name" />
+	<button>Add</button>
+	<li>
+		<!--add input functionality -->
+		*Insert Date* *Insert Time* *Insert exercise Name*
+		<button>Edit</button>
+		<button>Delete</button>
+	</li>
 </div>
+<!--*----------------------------------->
+<!--*------------WEIGHT TRACKER DIV-------------->
+<div>
+	<h3>Weight Tracker</h3>
+	<input type="text" placeholder="Weight (lbs)" />
+	<button>Add</button>
+    <Chart />
+</div>
+<!--*----------------------------------->
