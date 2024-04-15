@@ -55,16 +55,16 @@
 		<!--*----------------------------------->
 
 		<!--*------------EXERCISE TRACKER DIV-------------->
-		<div class="container bg-black w-2/3 h-60 my-10 mx-auto">
+		<div class="container bg-black w-5/6 h-60 my-10 mx-auto">
 			<h3 class="text-center py-5">Exercise Tracker</h3>
 			<div class="flex justify-center">
 				<input class="text-center py-3 mx-5" type="text" placeholder="Exercise Name" />
 				<button class="btn btn-secondary">Add</button>
 			</div>
-			<li class=""> 
+			<li class="list-none m-10"> 
 				<!--add input functionality -->
 				*Insert Date* *Insert Time* *Insert exercise Name*
-				<button class="btn btn-secondary">Edit</button>
+				<button class="btn btn-secondary mx-5">Edit</button>
 				<button class="btn btn-secondary">Delete</button>
 			</li>
 		</div>
