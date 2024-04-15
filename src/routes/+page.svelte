@@ -4,7 +4,7 @@
 	import '../app.css';
 </script>
 
-<main class="container mx-auto bg-slate-400">
+<main class="container mx-auto bg-slate-400 flex flex-col">
 	<h1 class="text-7xl text-center m-10">Pet Care Reminder App</h1>
 	<nav>
 		<div class="container mx-auto">
@@ -21,43 +21,47 @@
 	</nav>
 	<!--*----------DESCRIPTION DIV------------->
 	<h1 class="text-5xl text-center m-10">Pet Profile</h1>
-	<div class="container mx-20">
+	<div class="container mx-auto">
 		<!-- <img src={rohan} alt="Rohan"> -->
-		<div class="flex justify-start">
-			<div class="bg-white w-40 h-40 mr-10"></div>
-			<div>
-				<h3>Breed: *dynamically insert breed*</h3>
-				<h3>Age: *dynamically insert age*</h3>
-				<h3>Sex: *dynamically insert sex*</h3>
+		<div class="flex justify-center">
+			<div class="bg-white w-72 h-72 mr-10"></div>
+			<div class="">
+				<h3 class="text-2xl">Breed: *dynamically insert breed*</h3>
+				<h3 class="text-2xl">Age: *dynamically insert age*</h3>
+				<h3 class="text-2xl">Sex: *dynamically insert sex*</h3>
 			</div>
 		</div>
 		<!--*----------------------------------->
 
 		<!--*----------FEEDING DIV------------->
-		<div class="bg-black w-40 h-40">
-			<h3 class="text-center mt-10">Food Instructions</h3>
-			<p class="text-center">(insert) AM</p>
-			<p class="text-center">(insert) PM</p>
-		</div>
-		<!--*----------------------------------->
+		<div class="flex justify-center">
+			<div class="bg-black w-1/3 h-40 my-10">
+				<h3 class="text-center py-5">Food Instructions</h3>
+				<p class="text-center">(insert) AM</p>
+				<p class="text-center">(insert) PM</p>
+			</div>
+			<!--*----------------------------------->
 
-		<!--*----------MEDICATION DIV------------->
-		<div>
-			<h3>Medications</h3>
-			<ul>
-				<li>*insert meds here</li>
-				<li>*insert meds here</li>
-				<li>*insert meds here</li>
-			</ul>
+			<!--*----------MEDICATION DIV------------->
+			<div class="bg-black w-1/3 h-40 my-10 mx-10">
+				<h3 class="text-center py-5">Medications</h3>
+				<ul>
+					<li class="text-center">*insert meds here</li>
+					<li class="text-center">*insert meds here</li>
+					<li class="text-center">*insert meds here</li>
+				</ul>
+			</div>
 		</div>
 		<!--*----------------------------------->
 
 		<!--*------------EXERCISE TRACKER DIV-------------->
-		<div>
-			<h3>Exercise Tracker</h3>
-			<input type="text" placeholder="Exercise Name" />
-			<button class="btn btn-secondary">Add</button>
-			<li>
+		<div class="container bg-black w-2/3 h-60 my-10 mx-auto">
+			<h3 class="text-center py-5">Exercise Tracker</h3>
+			<div class="flex justify-center">
+				<input class="text-center py-3 mx-5" type="text" placeholder="Exercise Name" />
+				<button class="btn btn-secondary">Add</button>
+			</div>
+			<li class=""> 
 				<!--add input functionality -->
 				*Insert Date* *Insert Time* *Insert exercise Name*
 				<button class="btn btn-secondary">Edit</button>
