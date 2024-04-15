@@ -1,4 +1,9 @@
 <!-- Responsible for routing features, this is the file that gets serves in the browser-->
+<script>
+	import '../app.css';
+</script>
+
+<slot />
 <h1>Pet Care Reminder App</h1>
 <nav>
 	<ul>
@@ -10,21 +15,21 @@
 
 <h1>SERVICES</h1>
 <div>
-    <h3>Veterinarian</h3>
-    <h3>Name: *dynamically insert Dr. Name</h3>
-    <h3>Address: *dynamically insert address</h3>
-    <h3>Phone: *dynamically insert Phone</h3>
+	<h3>Veterinarian</h3>
+	<h3>Name: *dynamically insert Dr. Name</h3>
+	<h3>Address: *dynamically insert address</h3>
+	<h3>Phone: *dynamically insert Phone</h3>
 </div>
 <div>
-    <h3>Groomer</h3>
-    <h3>Name: *dynamically insert Dr. Name</h3>
-    <h3>Address: *dynamically insert address</h3>
-    <h3>Phone: *dynamically insert Phone</h3>
-    <h3>Schedule: *dynamically insert Link</h3>
+	<h3>Groomer</h3>
+	<h3>Name: *dynamically insert Dr. Name</h3>
+	<h3>Address: *dynamically insert address</h3>
+	<h3>Phone: *dynamically insert Phone</h3>
+	<h3>Schedule: *dynamically insert Link</h3>
 </div>
 <div>
-    <h3>Daycare</h3>
-    <h3>Name: *dynamically insert Dr. Name</h3>
-    <h3>Address: *dynamically insert address</h3>
-    <h3>Phone: *dynamically insert Phone</h3>
+	<h3>Daycare</h3>
+	<h3>Name: *dynamically insert Dr. Name</h3>
+	<h3>Address: *dynamically insert address</h3>
+	<h3>Phone: *dynamically insert Phone</h3>
 </div>

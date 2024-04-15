@@ -1,6 +1,7 @@
 <script>
 	// import rohan from '/rohan.jpg'
 	import Chart from '../components/chart.svelte';
+	import "../app.css";
 </script>
 
 <h1>Pet Care Reminder App</h1>
