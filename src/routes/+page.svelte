@@ -46,7 +46,7 @@
 <div>
 	<h3>Exercise Tracker</h3>
 	<input type="text" placeholder="Exercise Name" />
-	<button>Add</button>
+	<button class="btn btn-primary m-2">Add</button>
 	<li>
 		<!--add input functionality -->
 		*Insert Date* *Insert Time* *Insert exercise Name*
