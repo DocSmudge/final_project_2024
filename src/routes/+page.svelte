@@ -86,13 +86,12 @@
 			<div class="container bg-black w-5/6 h-fit my-10 mx-auto">
 				<h3 class="text-center py-5">Health Tracker</h3>
 				<div class="flex justify-center">
-				<input class="text-center py-3 mx-5" type="text" placeholder="Temperature" />
-				<input class="text-center py-3 mx-5" type="text" placeholder="Respirations" />
-				<input class="text-center py-3 mx-5" type="text" placeholder="Pulse" />
-				<button class="btn btn-secondary">Add</button>
-			</div>
+					<input class="text-center py-3 mx-5" type="text" placeholder="Temperature" />
+					<input class="text-center py-3 mx-5" type="text" placeholder="Respirations" />
+					<input class="text-center py-3 mx-5" type="text" placeholder="Pulse" />
+					<button class="btn btn-secondary">Add</button>
+				</div>
 				<div class="flex flex-col justify-center">
-
 					<li class="list-none m-10">
 						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
 					</li>
@@ -111,9 +110,15 @@
 		<!--*----------------------------------->
 
 		<!--*------------STOOL TRACKER DIV-------------->
-		<h3>Stool Tracker</h3>
-		<input type="text" placeholder="Stool Type" />
-		<button class="btn btn-secondary">Add</button>
+		<div>
+			<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5">
+				<h3 class="text-center py-5">Stool Tracker</h3>
+				<div class="flex justify-center m-10">
+					<input class="text-center py-3 mx-5" type="text" placeholder="Stool Type" />
+					<button class="btn btn-secondary">Add</button>
+				</div>
+			</div>
+		</div>
 		<!-- <Chart /> -->
 		<!--*----------------------------------->
 
