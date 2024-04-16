@@ -61,7 +61,7 @@
 				<input class="text-center py-3 mx-5" type="text" placeholder="Exercise Name" />
 				<button class="btn btn-secondary">Add</button>
 			</div>
-			<li class="list-none m-10"> 
+			<li class="list-none m-10">
 				<!--add input functionality -->
 				*Insert Date* *Insert Time* *Insert exercise Name*
 				<button class="btn btn-secondary mx-5">Edit</button>
@@ -71,23 +71,42 @@
 		<!--*----------------------------------->
 
 		<!--*------------WEIGHT TRACKER DIV-------------->
-		<div>
-			<h3>Weight Tracker</h3>
-			<input type="text" placeholder="Weight (lbs)" />
-			<button class="btn btn-secondary">Add</button>
+		<div class="container bg-black w-5/6 h-60 my-10 mx-auto">
+			<h3 class="text-center py-5">Weight Tracker</h3>
+			<div class="flex justify-center">
+				<input class="text-center py-3 mx-5" type="text" placeholder="Weight (lbs)" />
+				<button class="btn btn-secondary">Add</button>
+			</div>
 			<!-- <Chart /> -->
 		</div>
 		<!--*----------------------------------->
 
 		<!--*------------HEALTH TRACKER DIV-------------->
 		<div>
-			<h3>Health Tracker</h3>
-			<input type="text" placeholder="Temperature" />
-			<input type="text" placeholder="Respirations" />
-			<input type="text" placeholder="Pulse" />
-			<button class="btn btn-secondary">Add</button>
-			<li>*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*</li>
-			<li>*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*</li>
+			<div class="container bg-black w-5/6 h-fit my-10 mx-auto">
+				<h3 class="text-center py-5">Health Tracker</h3>
+				<div class="flex justify-center">
+				<input class="text-center py-3 mx-5" type="text" placeholder="Temperature" />
+				<input class="text-center py-3 mx-5" type="text" placeholder="Respirations" />
+				<input class="text-center py-3 mx-5" type="text" placeholder="Pulse" />
+				<button class="btn btn-secondary">Add</button>
+			</div>
+				<div class="flex flex-col justify-center">
+
+					<li class="list-none m-10">
+						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
+					</li>
+					<li class="list-none m-10">
+						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
+					</li>
+					<li class="list-none m-10">
+						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
+					</li>
+					<li class="list-none m-10">
+						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
+					</li>
+				</div>
+			</div>
 		</div>
 		<!--*----------------------------------->
 
