@@ -123,39 +123,41 @@
 		<!--*----------------------------------->
 
 		<!--*------------MEDICAL TRACKER DIV-------------->
-		<div>
-			<h3>Medical Tracker</h3>
-			<li>
-				<!--add input functionality -->
-				Rabies: *Insert Date*
-				<button class="btn btn-secondary">Edit</button>
-				<button class="btn btn-secondary">Delete</button>
-			</li>
-			<li>
+		<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5">
+			<h3 class="text-center py-5">Medical Tracker</h3>
+			<div>
+				<li class="list-none m-10">
+					<!--add input functionality -->
+					Rabies: *Insert Date*
+					<button class="btn btn-secondary m-2">Edit</button>
+					<button class="btn btn-secondary">Delete</button>
+				</li>
+			</div>
+			<li class="list-none m-10">
 				<!--add input functionality -->
 				DAPP: *Insert Date*
 				<button class="btn btn-secondary">Edit</button>
 				<button class="btn btn-secondary">Delete</button>
 			</li>
-			<li>
+			<li class="list-none m-10">
 				<!--add input functionality -->
 				BORD: *Insert Date*
 				<button class="btn btn-secondary">Edit</button>
 				<button class="btn btn-secondary">Delete</button>
 			</li>
-			<li>
+			<li class="list-none m-10">
 				<!--add input functionality -->
 				LEPTO: *Insert Date*
 				<button class="btn btn-secondary">Edit</button>
 				<button class="btn btn-secondary">Delete</button>
 			</li>
-			<li>
+			<li class="list-none m-10">
 				<!--add input functionality -->
 				HWP: *Insert Date*
 				<button class="btn btn-secondary">Edit</button>
 				<button class="btn btn-secondary">Delete</button>
 			</li>
-			<li>
+			<li class="list-none m-10">
 				<!--add input functionality -->
 				FLEA/TICK: *Insert Date*
 				<button class="btn btn-secondary">Edit</button>
