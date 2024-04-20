@@ -1,24 +1,12 @@
 <script>
 	// import rohan from '/rohan.jpg'
 	import Chart from '../components/chart.svelte';
-	
+	import Pet from '../pet.json';
+	console.log(Pet)
 </script>
 
 <main class="container mx-auto bg-slate-400 flex flex-col text-white">
-	<h1 class="text-7xl text-center m-10">Pet Care Reminder App</h1>
-	<nav>
-		<div class="container mx-auto">
-			<ul class="flex items-center justify-center space-x-6 bg-black color text-white p-4">
-				<li><a class="hover:bg-white hover:text-black py-4 px-2" href="/">Pet Profile</a></li>
-				<li>
-					<a class="hover:bg-white hover:text-black py-4 px-2" href="/pet_services">Pet Services</a>
-				</li>
-				<li>
-					<a class="hover:bg-white hover:text-black py-4 px-2" href="/calendar">Calendar</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	
 	<!--*----------DESCRIPTION DIV------------->
 	<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 	<div class="container mx-auto">
