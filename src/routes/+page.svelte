@@ -1,10 +1,10 @@
 <script>
 	// import rohan from '/rohan.jpg'
 	import Chart from '../components/chart.svelte';
-	import '../app.css';
+	
 </script>
 
-<main class="container mx-auto bg-slate-400 flex flex-col">
+<main class="container mx-auto bg-slate-400 flex flex-col text-white">
 	<h1 class="text-7xl text-center m-10">Pet Care Reminder App</h1>
 	<nav>
 		<div class="container mx-auto">
