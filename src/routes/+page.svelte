@@ -13,6 +13,7 @@
 	$: editedExercise = null;
 	$: editedVaccine = null;
 	$: petVaccines = [];
+	$: stool = null;
 
 	// $: console.log(petExercises);
 
@@ -21,6 +22,7 @@
 		petExercises = [...pet.exercises];
 		petHealth = [...pet.health];
 		petVaccines = [...pet.vaccines];
+		stool = [...pet.stool];
 	});
 
 	let exerciseInputValue = '';
@@ -28,18 +30,17 @@
 	let respInputValue = '';
 	let pulseInputValue = '';
 	let errorMessage = '';
-	let vaccineInputValue = '';
-
-	const date = new Intl.DateTimeFormat({
-		year: 'numeric',
-		month: '2-digit',
-		day: '2-digit'
-	}).format(new Date());
 
 	function addExercise() {
 		if (!exerciseInputValue) {
 			return;
 		}
+
+		const date = new Intl.DateTimeFormat(window.navigator.language, {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit'
+		}).format(new Date());
 
 		const newExercise = {
 			id: pet.exercises.length,
@@ -272,16 +273,7 @@
 
 			<!--*------------STOOL TRACKER DIV-------------->
 			<div>
-				<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5 flex">
-					<aside class="flex-1">
-						<h3 class="text-center py-5">Stool Tracker</h3>
-						<div class="flex justify-center m-10">
-							<input class="text-center py-3 mx-5" type="text" placeholder="Stool Type" />
-							<button class="btn btn-secondary">Add</button>
-						</div>
-					</aside>
-					<PoopChart />
-				</div>
+				<PoopChart name={pet.name} stool={pet.stool} />
 			</div>
 			<!--*----------------------------------->
 

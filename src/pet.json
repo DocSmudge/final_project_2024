@@ -85,5 +85,31 @@
             "respirations": "20",
             "pulse": "80"
         }
+    ],
+    "stool": [
+        {
+            "date": "04/10",
+            "scale": 2
+        },
+        {
+            "date": "04/11",
+            "scale": 3
+        },
+        {
+            "date": "04/12",
+            "scale": 5
+        },
+        {
+            "date": "04/13",
+            "scale": 7
+        },
+        {
+            "date": "04/14",
+            "scale": 2
+        },
+        {
+            "date": "04/15",
+            "scale": 8
+        }
     ]
 }
