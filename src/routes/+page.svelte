@@ -232,28 +232,24 @@
 			<!--*------------MEDICAL TRACKER DIV-------------->
 			<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5">
 				<h3 class="text-center py-5">Medical Tracker</h3>
-				<!-- <div>
+				<div>
 					<ul>
 						{#each pet.vaccines as vaccines}
-					
-						<li>
-							 <div>
-								<p>{vaccines.type}</p>
-								<p>{vaccines.date}</p>
-							</div>
-						</li>
+							<li>
+								<div class="flex">
+									<p class="m-2">{vaccines.type}</p>
+									<p class="m-2">{vaccines.date}</p>
+									<button class="btn btn-secondary m-2">Edit</button>
+									<button class="btn btn-secondary m-2">Delete</button>
+								</div>
+							</li>
+						{/each}
 					</ul>
-					<!-- <li class="list-none m-10">
-						<!--add input functionality -->
-				<!-- Rabies: *Insert Date*
-						<button class="btn btn-secondary m-2">Edit</button>
-						<button class="btn btn-secondary">Delete</button>
-					</li> -->
-				<!-- </div> -->
+				</div>
 			</div>
 		</div>
 	</main>
 {/if}
 
-<!-- Todo: Figure out why my UI is taking forever to update when I add a new object to my pet.exercise object  -->
-<!-- Todo: Figure out how to shorten the "date" info on exercise tracker  -->
+<!-- Todo:  -->
+<!-- Todo: -->
