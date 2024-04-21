@@ -1,8 +1,9 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	// import Chart from '../components/chart.svelte';
 	import Pet from '../pet.json';
+	import Reminder from '../components/Reminder.svelte';
 	import PoopChart from '../components/PoopChart.svelte';
 
 	//---------------------------------------
@@ -15,7 +16,38 @@
 	$: petVaccines = [];
 	$: stool = null;
 
-	// $: console.log(petExercises);
+	let exerciseInputValue = '';
+	let tempInputValue = '';
+	let respInputValue = '';
+	let pulseInputValue = '';
+	let errorMessage = '';
+	let scheduledReminders = [];
+	let reminders = [
+		{
+			id: 0,
+			message: 'Make sure to feed rohan and smudge now :)',
+			completed: false,
+			time: new Date(2024, 3, 30, 3, 0, 0)
+		},
+		{
+			id: 1,
+			message: 'Make sure to medicate Rohan now :)',
+			completed: false,
+			time: new Date(2024, 3, 30, 3, 0, 0)
+		},
+		{
+			id: 2,
+			message: "Remember to buy cat litter and dog food within the next week so you don't run out.",
+			completed: false,
+			time: new Date(2024, 3, 30, 3, 0, 0)
+		},
+		{
+			id: 3,
+			message: 'Remember to fast Smudge from 10pm-7am before her dental cleaning tomorrow.',
+			completed: false,
+			time: new Date(2024, 3, 30, 3, 0, 0)
+		}
+	];
 
 	onMount(() => {
 		pet = JSON.parse(JSON.stringify(Pet));
@@ -23,14 +55,24 @@
 		petHealth = [...pet.health];
 		petVaccines = [...pet.vaccines];
 		stool = [...pet.stool];
+		reminders.forEach((reminder) => {
+			const timeOutId = setTimeout(() => {
+				showReminders(reminder);
+			}, reminder.time - Date.now());
+			scheduledReminders = [...reminder, timeOutId];
+		});
 	});
 
-	let exerciseInputValue = '';
-	let tempInputValue = '';
-	let respInputValue = '';
-	let pulseInputValue = '';
-	let errorMessage = '';
-
+	function showReminders() {
+		console.log(`Reminder: ${reminders.message}`);
+		//add modal or notification
+	}
+	onDestroy(() => {
+		// Clean up any scheduled reminders
+		scheduledReminders.forEach(({ timeoutId }) => {
+			clearTimeout(timeoutId);
+		});
+	});
 	function addExercise() {
 		if (!exerciseInputValue) {
 			return;
@@ -110,6 +152,11 @@
 
 {#if pet}
 	<main class="container mx-auto bg-slate-400 flex flex-col text-white">
+		<h1>Reminders</h1>
+		{#each reminders as reminder}
+			<Reminder {reminder} />
+		{/each}
+
 		<!--*----------DESCRIPTION DIV------------->
 		<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 		<div class="container mx-auto">
