@@ -1,9 +1,9 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { onMount } from 'svelte';
-	import Chart from '../components/chart.svelte';
+	// import Chart from '../components/chart.svelte';
 	import Pet from '../pet.json';
-	import { _adapters } from 'chart.js';
+	import PoopChart from '../components/PoopChart.svelte';
 
 	//---------------------------------------
 
@@ -97,26 +97,14 @@
 	}
 	//---------------------------------------
 	function saveVaccines(index, value) {
-		console.log('saveVaccines function called');
 		const vaccine = petVaccines.find((vaccine, i) => {
 			if (index === i) {
 				return vaccine;
 			}
 		});
-		console.log('Found vaccine:', vaccine);
-		console.log('Value:', value);
-		vaccine.vaccine = value;
-		console.log('Vaccines after update:', petVaccines);
-		vaccine.vaccine = value;
+		vaccine.date = value;
 		editedVaccine = null;
 	}
-	// function saveVaccines(index, value) {
-	// 	const vaccineToUpdate = petVaccines[index]; // Find the vaccine to update using its index
-	// 	console.log('saved');
-	// 	console.log(value); // Use the value parameter directly
-	// 	vaccineToUpdate.vaccine = value; // Update the vaccine's vaccine property with the new value
-	// 	editedVaccine = null; // Reset the editedVaccine state
-	// }
 </script>
 
 {#if pet}
@@ -284,15 +272,17 @@
 
 			<!--*------------STOOL TRACKER DIV-------------->
 			<div>
-				<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5">
-					<h3 class="text-center py-5">Stool Tracker</h3>
-					<div class="flex justify-center m-10">
-						<input class="text-center py-3 mx-5" type="text" placeholder="Stool Type" />
-						<button class="btn btn-secondary">Add</button>
-					</div>
+				<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5 flex">
+					<aside class="flex-1">
+						<h3 class="text-center py-5">Stool Tracker</h3>
+						<div class="flex justify-center m-10">
+							<input class="text-center py-3 mx-5" type="text" placeholder="Stool Type" />
+							<button class="btn btn-secondary">Add</button>
+						</div>
+					</aside>
+					<PoopChart />
 				</div>
 			</div>
-			<!-- <Chart /> -->
 			<!--*----------------------------------->
 
 			<!--*------------MEDICAL TRACKER DIV-------------->
@@ -306,7 +296,6 @@
 									<input
 										class="text-black"
 										type="text"
-										bind.value={vaccine.vaccine}
 										on:keydown={(event) => {
 											if (event.key === 'Enter') {
 												saveVaccines(index, event.target.value);
@@ -323,7 +312,6 @@
 											}}
 											class="btn btn-secondary m-2">Edit</button
 										>
-										<!-- <button class="btn btn-secondary m-2">Delete</button> -->
 									</div>
 								{/if}
 							</li>
