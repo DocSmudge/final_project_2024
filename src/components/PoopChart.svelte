@@ -7,7 +7,7 @@
 	export let stool = [];
 
 	$: chart = undefined;
-	$: console.log(chart);
+	// $: console.log(chart);
 
 	function chartRender() {
 		const canvas = document.querySelector('canvas');

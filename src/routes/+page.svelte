@@ -22,32 +22,59 @@
 	let pulseInputValue = '';
 	let errorMessage = '';
 	let scheduledReminders = [];
+
+	/**
+	 * Generate Reminder Times
+	 * @param {number} minutes
+	 */
+	const generateReminderTime = (minutes) => new Date(new Date().getTime() + minutes * 60000);
+	let currentReminder;
+	$: console.log(currentReminder);
+	$: if (currentReminder) {
+		setTimeout(() => {
+			currentReminder = null;
+		}, currentReminder.time);
+	}
 	let reminders = [
 		{
 			id: 0,
 			message: 'Make sure to feed rohan and smudge now :)',
 			completed: false,
-			time: new Date(2024, 3, 30, 3, 0, 0)
+			time: generateReminderTime(0.01)
 		},
 		{
 			id: 1,
 			message: 'Make sure to medicate Rohan now :)',
 			completed: false,
-			time: new Date(2024, 3, 30, 3, 0, 0)
+			time: generateReminderTime(0.04)
 		},
 		{
 			id: 2,
 			message: "Remember to buy cat litter and dog food within the next week so you don't run out.",
 			completed: false,
-			time: new Date(2024, 3, 30, 3, 0, 0)
+			time: generateReminderTime(1)
 		},
 		{
 			id: 3,
 			message: 'Remember to fast Smudge from 10pm-7am before her dental cleaning tomorrow.',
 			completed: false,
-			time: new Date(2024, 3, 30, 3, 0, 0)
+			time: generateReminderTime(2)
 		}
 	];
+
+	function checkReminders(e) {
+		reminders.forEach((reminder, index) => {
+			const time = reminder.time.getTime();
+			const currentTime = new Date().getTime();
+			if (currentTime >= time) {
+				currentReminder = {
+					...reminder,
+					time: 5000 // 5 seconds
+				};
+				reminders = reminders.filter((r) => r.id !== reminder.id);
+			}
+		});
+	}
 
 	onMount(() => {
 		pet = JSON.parse(JSON.stringify(Pet));
@@ -55,29 +82,19 @@
 		petHealth = [...pet.health];
 		petVaccines = [...pet.vaccines];
 		stool = [...pet.stool];
-		reminders.forEach((reminder) => {
-			const timeOutId = setTimeout(() => {
-				showReminders(reminder);
-			}, reminder.time - Date.now());
-			scheduledReminders = [...reminder, timeOutId];
-		});
-	});
 
-	function showReminders() {
-		console.log(`Reminder: ${reminders.message}`);
-		//add modal or notification
-	}
+		// Mount the scheduled reminders
+		const interval = setInterval(checkReminders, 1000); // Run every 1 seconds
+
+		return () => {
+			clearInterval(interval); // on unMount clear the interval
+		};
+	});
 
 	function dismissReminder(id) {
 		reminders = reminders.filter((reminder) => reminder.id !== id);
 	}
 
-	onDestroy(() => {
-		// Clean up any scheduled reminders
-		scheduledReminders.forEach(({ timeoutId }) => {
-			clearTimeout(timeoutId);
-		});
-	});
 	function addExercise() {
 		if (!exerciseInputValue) {
 			return;
@@ -157,10 +174,10 @@
 
 {#if pet}
 	<main class="container mx-auto bg-slate-400 flex flex-col text-white">
-		<h1>Reminders</h1>
-		{#each reminders as reminder}
+		<!-- <h1>Reminders</h1> -->
+		<!-- {#each reminders as reminder}
 			<Reminder {reminder} on:dismiss={dismissReminder} />
-		{/each}
+		{/each} -->
 
 		<!--*----------DESCRIPTION DIV------------->
 		<h1 class="text-5xl text-center m-10">Pet Profile</h1>
@@ -365,6 +382,15 @@
 			</div>
 		</div>
 	</main>
+
+	{#if currentReminder}
+		<div
+			class="fixed bottom-0 right-0 m-4 z-20 border-2 border-slate-500 w-full max-w-lg bg-white shadow-lg rounded p-4"
+		>
+			<p>{currentReminder.id}</p>
+			<p>{currentReminder.message}</p>
+		</div>
+	{/if}
 {/if}
 
 <!-- Todo:  -->
