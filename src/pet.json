@@ -50,25 +50,32 @@
             "date": "01/02/2024"
         }
     ],
-    "providers":[
+    "providers": [
         {
-            "profession":"Veterinarian",
+            "profession": "Veterinarian",
             "name": "Dr. Bret Grover",
             "address": "12720 S Pony Express Rd, Draper UT 84020",
             "phone": "8015551263"
         },
         {
-            "profession":"Groomer",
+            "profession": "Groomer",
             "name": "Sarah Smith",
             "address": "12345 Grooming St. Draper UT 84020",
             "phone": "8015651263",
             "schedule": "www.schedulehere.com"
-        }, 
+        },
         {
-            "profession":"Daycare",
+            "profession": "Daycare",
             "name": "Happy Paws Kennel",
             "address": "12345 Kennel St. Draper UT 84020",
             "phone": "8015651264"
+        }
+    ],
+    "exercises": [
+        {
+            "date": "04/03/24",
+            "time": "30 minutes",
+            "exercise": "Walk"
         }
     ]
 }

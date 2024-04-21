@@ -2,11 +2,25 @@
 	// import rohan from '/rohan.jpg'
 	import Chart from '../components/chart.svelte';
 	import Pet from '../pet.json';
-	console.log(Pet)
+	//---------------------------------------
+	let inputValue = '';
+
+	function addExercise() {
+		if (inputValue.trim() !== '') {
+			const newExercise = {
+				id: Pet.exercises.length,
+				date: new Date(),
+				time: new Date().getTime(),
+				exercise: inputValue
+			};
+			Pet.exercises.push(newExercise);
+			console.log(Pet);
+		}
+		inputValue = '';
+	}
 </script>
 
 <main class="container mx-auto bg-slate-400 flex flex-col text-white">
-	
 	<!--*----------DESCRIPTION DIV------------->
 	<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 	<div class="container mx-auto">
@@ -34,9 +48,21 @@
 			<div class="bg-black w-1/3 h-40 my-10 mx-10">
 				<h3 class="text-center py-5">Medications</h3>
 				<ul>
-					<li class="text-center">{Pet.medications[0].name} {Pet.medications[0].dose} {Pet.medications[0].instructions}</li>
-					<li class="text-center">{Pet.medications[1].name} {Pet.medications[1].dose} {Pet.medications[1].instructions}</li>
-					<li class="text-center">{Pet.medications[2].name} {Pet.medications[2].dose} {Pet.medications[2].instructions}</li>
+					<li class="text-center">
+						{Pet.medications[0].name}
+						{Pet.medications[0].dose}
+						{Pet.medications[0].instructions}
+					</li>
+					<li class="text-center">
+						{Pet.medications[1].name}
+						{Pet.medications[1].dose}
+						{Pet.medications[1].instructions}
+					</li>
+					<li class="text-center">
+						{Pet.medications[2].name}
+						{Pet.medications[2].dose}
+						{Pet.medications[2].instructions}
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -46,12 +72,18 @@
 		<div class="container bg-black w-5/6 h-60 my-10 mx-auto">
 			<h3 class="text-center py-5">Exercise Tracker</h3>
 			<div class="flex justify-center">
-				<input class="text-center py-3 mx-5" type="text" placeholder="Exercise Name" />
-				<button class="btn btn-secondary">Add</button>
+				<input
+					class="text-center py-3 mx-5"
+					type="text"
+					placeholder="Exercise Name"
+					bind:value={inputValue}
+				/>
+				<button on:click={addExercise} class="btn btn-secondary">Add</button>
 			</div>
 			<li class="list-none m-10">
 				<!--add input functionality -->
-				*Insert Date* *Insert Time* *Insert exercise Name*
+				{Pet.exercises[0].exercise} - {Pet.exercises[0].time}
+				{Pet.exercises[0].date}
 				<button class="btn btn-secondary mx-5">Edit</button>
 				<button class="btn btn-secondary">Delete</button>
 			</li>
