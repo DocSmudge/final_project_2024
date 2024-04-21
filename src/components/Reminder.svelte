@@ -1,7 +1,9 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
 	export let reminder;
+    const dispatch = createEventDispatcher()
 	function dismissReminder() {
-		//dismiss reminder logic heeerreeee
+		dispatch('dismiss', {id: reminder.id})
 		console.log('needs to be dismissed');
 	}
 </script>

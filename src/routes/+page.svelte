@@ -67,6 +67,11 @@
 		console.log(`Reminder: ${reminders.message}`);
 		//add modal or notification
 	}
+
+	function dismissReminder(id) {
+		reminders = reminders.filter((reminder) => reminder.id !== id);
+	}
+
 	onDestroy(() => {
 		// Clean up any scheduled reminders
 		scheduledReminders.forEach(({ timeoutId }) => {
@@ -154,7 +159,7 @@
 	<main class="container mx-auto bg-slate-400 flex flex-col text-white">
 		<h1>Reminders</h1>
 		{#each reminders as reminder}
-			<Reminder {reminder} />
+			<Reminder {reminder} on:dismiss={dismissReminder} />
 		{/each}
 
 		<!--*----------DESCRIPTION DIV------------->
