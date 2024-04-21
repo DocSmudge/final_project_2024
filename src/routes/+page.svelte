@@ -1,4 +1,6 @@
 <script>
+	import Button from '$lib/components/ui/button/button.svelte';
+
 	// import rohan from '/rohan.jpg'
 	import Chart from '../components/chart.svelte';
 	import Pet from '../pet.json';
@@ -17,6 +19,11 @@
 			console.log(Pet);
 		}
 		inputValue = '';
+	}
+	//---------------------------------------
+	function deleteExercise(index) {
+		Pet.exercises = [...Pet.exercises.slice(0, index), ...Pet.exercises.slice(index + 1)];
+		console.log(Pet);
 	}
 </script>
 
@@ -73,20 +80,27 @@
 			<h3 class="text-center py-5">Exercise Tracker</h3>
 			<div class="flex justify-center">
 				<input
-					class="text-center py-3 mx-5"
+					class="text-center py-3 mx-5 text-black"
 					type="text"
 					placeholder="Exercise Name"
 					bind:value={inputValue}
 				/>
 				<button on:click={addExercise} class="btn btn-secondary">Add</button>
 			</div>
-			<li class="list-none m-10">
-				<!--add input functionality -->
-				{Pet.exercises[0].exercise} - {Pet.exercises[0].time}
-				{Pet.exercises[0].date}
-				<button class="btn btn-secondary mx-5">Edit</button>
-				<button class="btn btn-secondary">Delete</button>
-			</li>
+			<ul>
+				{#each Pet.exercises as exercise, index}
+					<li class="list-none m-10">
+						<div>
+							<strong>Date:</strong>
+							{exercise.date}, <strong>Time:</strong>
+							{exercise.time}, <strong>Exercise:</strong>
+							{exercise.exercise}
+							<button class="btn btn-secondary mx-5">Edit</button>
+							<button on:click={deleteExercise(index)} class="btn btn-secondary">Delete</button>
+						</div>
+					</li>
+				{/each}
+			</ul>
 		</div>
 		<!--*----------------------------------->
 
@@ -186,3 +200,6 @@
 		</div>
 	</div>
 </main>
+
+<!-- Todo: Figure out why my UI is taking forever to update when I add a new object to my Pet.exercise object  -->
+<!-- Todo: Figure out how to shorten the "date" info on exercise tracker  -->
