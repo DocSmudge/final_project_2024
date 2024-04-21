@@ -3,17 +3,24 @@
 	import { onMount } from 'svelte';
 	import Chart from '../components/chart.svelte';
 	import Pet from '../pet.json';
+	import { _adapters } from 'chart.js';
+
 	//---------------------------------------
 
 	$: pet = null;
 	$: petExercises = [];
 	$: petHealth = [];
+	$: editedExercise = null;
+	$: editedVaccine = null;
+	$: petVaccines = [];
+
 	// $: console.log(petExercises);
 
 	onMount(() => {
 		pet = JSON.parse(JSON.stringify(Pet));
 		petExercises = [...pet.exercises];
 		petHealth = [...pet.health];
+		petVaccines = [...pet.vaccines];
 	});
 
 	let exerciseInputValue = '';
@@ -21,6 +28,7 @@
 	let respInputValue = '';
 	let pulseInputValue = '';
 	let errorMessage = '';
+	let vaccineInputValue = '';
 
 	const date = new Intl.DateTimeFormat({
 		year: 'numeric',
@@ -69,6 +77,46 @@
 	function deleteHealth(index) {
 		petHealth = [...petHealth.slice(0, index), ...petHealth.slice(index + 1)];
 	}
+	//---------------------------------------
+	function editExercise(exercise) {
+		editedExercise = exercise;
+	}
+	//---------------------------------------
+	function saveExercise(index, value) {
+		const exercise = petExercises.find((exercise, i) => {
+			if (index === i) {
+				return exercise;
+			}
+		});
+		exercise.exercise = value;
+		editedExercise = null; // RESET EDIT STATE
+	}
+	//---------------------------------------
+	function editVaccines(vaccine) {
+		editedVaccine = vaccine;
+	}
+	//---------------------------------------
+	function saveVaccines(index, value) {
+		console.log('saveVaccines function called');
+		const vaccine = petVaccines.find((vaccine, i) => {
+			if (index === i) {
+				return vaccine;
+			}
+		});
+		console.log('Found vaccine:', vaccine);
+		console.log('Value:', value);
+		vaccine.vaccine = value;
+		console.log('Vaccines after update:', petVaccines);
+		vaccine.vaccine = value;
+		editedVaccine = null;
+	}
+	// function saveVaccines(index, value) {
+	// 	const vaccineToUpdate = petVaccines[index]; // Find the vaccine to update using its index
+	// 	console.log('saved');
+	// 	console.log(value); // Use the value parameter directly
+	// 	vaccineToUpdate.vaccine = value; // Update the vaccine's vaccine property with the new value
+	// 	editedVaccine = null; // Reset the editedVaccine state
+	// }
 </script>
 
 {#if pet}
@@ -133,16 +181,36 @@
 					<button on:click={addExercise} class="btn btn-secondary">Add</button>
 				</div>
 				<ul>
-					{#each petExercises as e, i}
+					{#each petExercises as exercise, index}
 						<li>
-							<div>
-								<strong>Date:</strong>
-								{e.date}, <strong>Time:</strong>
-								{e.time}, <strong>Exercise:</strong>
-								{e.exercise}
-								<button class="btn btn-secondary mx-5">Edit</button>
-								<button on:click={() => deleteExercise(i)} class="btn btn-secondary">Delete</button>
-							</div>
+							{#if editedExercise === exercise}
+								<input
+									class="text-black"
+									type="text"
+									bind.value={exercise.exercise}
+									on:keydown={(event) => {
+										if (event.key === 'Enter') {
+											saveExercise(index, event.target.value);
+										}
+									}}
+								/>
+							{:else}
+								<div>
+									<strong>Date:</strong>
+									{exercise.date}, <strong>Time:</strong>
+									{exercise.time}, <strong>Exercise:</strong>
+									{exercise.exercise}
+									<button
+										on:click={() => {
+											editExercise(exercise);
+										}}
+										class="btn btn-secondary mx-5">Edit</button
+									>
+									<button on:click={() => deleteExercise(index)} class="btn btn-secondary"
+										>Delete</button
+									>
+								</div>
+							{/if}
 						</li>
 					{/each}
 				</ul>
@@ -202,8 +270,6 @@
 										<p class="mr-2">{health.temperature} degrees</p>
 										<p class="mr-2">{health.respirations} breaths per minute</p>
 										<p class="mr-2">{health.pulse} beats per minute</p>
-
-										<button class="btn btn-secondary mx-5">Edit</button>
 										<button on:click={() => deleteHealth(index)} class="btn btn-secondary"
 											>Delete</button
 										>
@@ -234,14 +300,32 @@
 				<h3 class="text-center py-5">Medical Tracker</h3>
 				<div>
 					<ul>
-						{#each pet.vaccines as vaccines}
+						{#each pet.vaccines as vaccine, index}
 							<li>
-								<div class="flex">
-									<p class="m-2">{vaccines.type}</p>
-									<p class="m-2">{vaccines.date}</p>
-									<button class="btn btn-secondary m-2">Edit</button>
-									<button class="btn btn-secondary m-2">Delete</button>
-								</div>
+								{#if editedVaccine === vaccine}
+									<input
+										class="text-black"
+										type="text"
+										bind.value={vaccine.vaccine}
+										on:keydown={(event) => {
+											if (event.key === 'Enter') {
+												saveVaccines(index, event.target.value);
+											}
+										}}
+									/>
+								{:else}
+									<div class="flex">
+										<p class="m-2">{vaccine.type}</p>
+										<p class="m-2">{vaccine.date}</p>
+										<button
+											on:click={() => {
+												editVaccines(vaccine);
+											}}
+											class="btn btn-secondary m-2">Edit</button
+										>
+										<!-- <button class="btn btn-secondary m-2">Delete</button> -->
+									</div>
+								{/if}
 							</li>
 						{/each}
 					</ul>
