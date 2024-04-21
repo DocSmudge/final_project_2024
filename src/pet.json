@@ -77,5 +77,13 @@
             "time": "30 minutes",
             "exercise": "Walk"
         }
+    ],
+    "health": [
+        {
+            "date": "04/03/24",
+            "temperature": "99.9",
+            "respirations": "20",
+            "pulse": "80"
+        }
     ]
 }

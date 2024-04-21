@@ -126,18 +126,18 @@
 					<button class="btn btn-secondary">Add</button>
 				</div>
 				<div class="flex flex-col justify-center">
-					<li class="list-none m-10">
-						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
-					</li>
-					<li class="list-none m-10">
-						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
-					</li>
-					<li class="list-none m-10">
-						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
-					</li>
-					<li class="list-none m-10">
-						*Insert Date* *Insert Temperature* *Insert Respirations* *Insert Heart Rate*
-					</li>
+					<ul>
+						{#each Pet.health as health, index}
+							<li class="list-none m-10">
+								<div>
+									<strong>Date</strong>
+									<strong>Temperature</strong>
+									<strong>Respirations</strong>
+									<strong>Pulse</strong>
+								</div>
+							</li>
+						{/each}
+					</ul>
 				</div>
 			</div>
 		</div>
