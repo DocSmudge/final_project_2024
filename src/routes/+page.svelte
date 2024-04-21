@@ -14,9 +14,9 @@
 		<div class="flex justify-center">
 			<div class="bg-white w-72 h-72 mr-10"></div>
 			<div class="">
-				<h3 class="text-2xl">Breed: *dynamically insert breed*</h3>
-				<h3 class="text-2xl">Age: *dynamically insert age*</h3>
-				<h3 class="text-2xl">Sex: *dynamically insert sex*</h3>
+				<h3 class="text-2xl">Breed: {Pet.breed}</h3>
+				<h3 class="text-2xl">Age: {Pet.age}</h3>
+				<h3 class="text-2xl">Sex: {Pet.sex}</h3>
 			</div>
 		</div>
 		<!--*----------------------------------->
@@ -25,8 +25,8 @@
 		<div class="flex justify-center">
 			<div class="bg-black w-1/3 h-40 my-10">
 				<h3 class="text-center py-5">Food Instructions</h3>
-				<p class="text-center">(insert) AM</p>
-				<p class="text-center">(insert) PM</p>
+				<p class="text-center">{Pet.feeding.am}</p>
+				<p class="text-center">{Pet.feeding.pm}</p>
 			</div>
 			<!--*----------------------------------->
 
@@ -34,9 +34,9 @@
 			<div class="bg-black w-1/3 h-40 my-10 mx-10">
 				<h3 class="text-center py-5">Medications</h3>
 				<ul>
-					<li class="text-center">*insert meds here</li>
-					<li class="text-center">*insert meds here</li>
-					<li class="text-center">*insert meds here</li>
+					<li class="text-center">{Pet.medications[0].name} {Pet.medications[0].dose} {Pet.medications[0].instructions}</li>
+					<li class="text-center">{Pet.medications[1].name} {Pet.medications[1].dose} {Pet.medications[1].instructions}</li>
+					<li class="text-center">{Pet.medications[2].name} {Pet.medications[2].dose} {Pet.medications[2].instructions}</li>
 				</ul>
 			</div>
 		</div>
