@@ -352,8 +352,9 @@
 				<div>
 					<ul>
 						{#each pet.vaccines as vaccine, index}
-							<li>
+							<li class="flex">
 								{#if editedVaccine === vaccine}
+									<p class="m-2">{vaccine.type}</p>
 									<input
 										class="text-black"
 										type="text"
@@ -387,11 +388,11 @@
 		<div
 			class="fixed bottom-0 right-0 m-4 z-20 border-2 border-slate-500 w-full max-w-lg bg-white shadow-lg rounded p-4"
 		>
-			<p>{currentReminder.id}</p>
+			<!-- <p>{currentReminder.id}</p> -->
 			<p>{currentReminder.message}</p>
 		</div>
 	{/if}
 {/if}
 
-<!-- Todo:  -->
+<!-- Todo: When clicking on the date for the medical tracker, I only want to make the date an input. -->
 <!-- Todo: -->
