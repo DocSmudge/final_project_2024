@@ -175,18 +175,17 @@
 
 {#if pet}
 	<main class="container mx-auto bg-slate-400 flex flex-col text-white">
-		<!-- <h1>Reminders</h1> -->
-		<!-- {#each reminders as reminder}
-			<Reminder {reminder} on:dismiss={dismissReminder} />
-		{/each} -->
-
 		<!--*----------DESCRIPTION DIV------------->
 		<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 		<div class="container mx-auto">
 			<div class="flex justify-center">
-				<img class="aspect-auto max-w-72" src="/rohan.jpg" alt="Rohan" />
+				<div class="avatar">
+					<div class="w-56 mask mask-hexagon">
+						<img src="/rohan.jpg" alt="Rohan" />
+					</div>
+				</div>
 				<!-- <div class="bg-white w-72 h-72 mr-10"></div> -->
-				<div class="">
+				<div class="self-center">
 					<h3 class="text-2xl">Breed: {pet.breed}</h3>
 					<h3 class="text-2xl">Age: {pet.age}</h3>
 					<h3 class="text-2xl">Sex: {pet.sex}</h3>
@@ -195,36 +194,39 @@
 			<!--*----------------------------------->
 
 			<!--*----------FEEDING DIV------------->
-			<div class="flex justify-center">
-				<div class="bg-black w-1/3 h-40 my-10">
-					<h3 class="text-center py-5">Food Instructions</h3>
-					<p class="text-center">{pet.feeding.am}</p>
-					<p class="text-center">{pet.feeding.pm}</p>
-				</div>
-				<!--*----------------------------------->
-
-				<!--*----------MEDICATION DIV------------->
-				<div class="bg-black w-1/3 h-40 my-10 mx-10">
-					<h3 class="text-center py-5">Medications</h3>
-					<ul>
-						<li class="text-center">
-							{pet.medications[0].name}
-							{pet.medications[0].dose}
-							{pet.medications[0].instructions}
-						</li>
-						<li class="text-center">
-							{pet.medications[1].name}
-							{pet.medications[1].dose}
-							{pet.medications[1].instructions}
-						</li>
-						<li class="text-center">
-							{pet.medications[2].name}
-							{pet.medications[2].dose}
-							{pet.medications[2].instructions}
-						</li>
-					</ul>
-				</div>
+			<div class="display-flex row">
+			<div class="card w-96 bg-base-100 shadow-xl">
+				<figure>
+					<img src="/dog-food.jpg" alt="dogfood" />
+				</figure>
+				<h3 class="text-center py-5">Food Instructions</h3>
+				<p class="text-center">{pet.feeding.am}</p>
+				<p class="text-center">{pet.feeding.pm}</p>
 			</div>
+			<!--*----------------------------------->
+
+			<!--*----------MEDICATION DIV------------->
+			<div class="bg-black w-1/3 h-40 my-10 mx-10">
+				<h3 class="text-center py-5">Medications</h3>
+				<ul>
+					<li class="text-center">
+						{pet.medications[0].name}
+						{pet.medications[0].dose}
+						{pet.medications[0].instructions}
+					</li>
+					<li class="text-center">
+						{pet.medications[1].name}
+						{pet.medications[1].dose}
+						{pet.medications[1].instructions}
+					</li>
+					<li class="text-center">
+						{pet.medications[2].name}
+						{pet.medications[2].dose}
+						{pet.medications[2].instructions}
+					</li>
+				</ul>
+			</div>
+		</div>
 			<!--*----------------------------------->
 
 			<!--*------------EXERCISE TRACKER DIV-------------->
@@ -397,6 +399,3 @@
 		</div>
 	{/if}
 {/if}
-
-<!-- Todo: When clicking on the date for the medical tracker, I only want to make the date an input. -->
-<!-- Todo: -->
