@@ -5,6 +5,7 @@
 	import Pet from '../pet.json';
 	import Reminder from '../components/Reminder.svelte';
 	import PoopChart from '../components/PoopChart.svelte';
+	import WeightChart from '../components/WeightChart.svelte';
 
 	//---------------------------------------
 
@@ -276,17 +277,20 @@
 			<!--*----------------------------------->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
-			<div class="container bg-black w-5/6 h-60 my-10 mx-auto">
-				<h3 class="text-center py-5">Weight Tracker</h3>
+			<div class="container bg-black w-5/6 h-auto my-10 mx-auto">
+				<div>
+					<WeightChart name={pet.name} weight={pet.weight} />
+				</div>
+			</div>
+			<!-- <h3 class="text-center py-5">Weight Tracker</h3>
 				<div class="flex justify-center">
 					<input class="text-center py-3 mx-5" type="text" placeholder="Weight (lbs)" />
 					<button class="btn btn-secondary">Add</button>
-				</div>
-				<!-- <Chart /> -->
-			</div>
+				</div> -->
 			<!--*----------------------------------->
 
-			<!--*------------HEALTH TRACKER DIV-------------->
+			<!--*----------------------------------->
+
 			<div>
 				<div class="container bg-black w-5/6 h-fit my-10 mx-auto">
 					<h3 class="text-center py-5">Health Tracker</h3>

@@ -19,16 +19,16 @@
 	let:months
 	let:weekdays
 >
-	<Calendar.Header>
+	<Calendar.Header >
 		<Calendar.PrevButton />
 		<Calendar.Heading />
 		<Calendar.NextButton />
 	</Calendar.Header>
-	<Calendar.Months>
+	<Calendar.Months >
 		{#each months as month}
 			<Calendar.Grid>
 				<Calendar.GridHead>
-					<Calendar.GridRow class="flex">
+					<Calendar.GridRow>
 						{#each weekdays as weekday}
 							<Calendar.HeadCell>
 								{weekday.slice(0, 2)}
@@ -41,12 +41,12 @@
 						<Calendar.GridRow class="mt-2 w-full">
 							{#each weekDates as date}
 								<Calendar.Cell {date}>
-									<Calendar.Day class="p-8" {date} month={month.value}>
+									<Calendar.Day class="" {date} month={month.value}>
 										<div>
 											<span>{date.day}</span>
 											<ul>
-												<li>hi</li>
-												<li>hello</li>
+												<!-- <li>hi</li>
+												<li>hello</li> -->
 											</ul>
 										</div>
 									</Calendar.Day>

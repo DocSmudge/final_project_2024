@@ -5,8 +5,7 @@
 	let value = today(getLocalTimeZone());
 </script>
 
-<h1>Calendar</h1>
-
-<Calendar bind:value class="rounded-md border shadow" /> 
-
-<!-- cant get calendar to work :( -->
+<h1 class="text-5xl text-center m-10">Calendar</h1>
+<div class="flex justify-center">
+<Calendar bind:value class="w-screen h-screen rounded-md border shadow" /> 
+</div>

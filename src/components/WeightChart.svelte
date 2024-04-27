@@ -4,22 +4,22 @@
 	import 'chartjs-adapter-date-fns';
 
 	export let name = '';
-	export let stool = [];
+	export let weight = [];
 
-	$: chart = undefined;
+	$: newChart = undefined;
 	// $: console.log(chart);
 
 	function chartRender() {
-		const canvas = document.querySelector('#poopyChart');
+		const canvas = document.querySelector('#weightChart');
 
 		const data = {
 			// labels: ['02/10', '02/13', '02/14', '03/12', '03/14', '03/20'],
-			labels: stool.map((s) => s.date),
+			labels: weight.map((w) => w.date),
 			datasets: [
 				{
-					label: `${name} POOPIES`,
+					label: `${name} WEIGHT`,
 					// data: [10, 1, 1, 1, 1, 1], // Values corresponding to 'soft'
-					data: stool.map((s) => s.scale),
+					data: weight.map((w) => w.scale),
 					borderColor: 'rgba(255, 99, 132, 1)',
 					borderWidth: 1
 				}
@@ -29,7 +29,7 @@
 		if (canvas) {
 			const ctx = canvas.getContext('2d');
 			if (ctx) {
-				chart = new Chart(ctx, {
+				newChart = new Chart(ctx, {
 					type: 'line',
 					data: data,
 					options: {
@@ -51,20 +51,20 @@
 							y: {
 								type: 'linear',
 								min: 0, // Adjusted minimum value
-								max: 11, // Adjusted maximum value
+								max: 30, // Adjusted maximum value
 								ticks: {
 									stepSize: 1,
 									callback: function (value) {
 										if (value === 0) return ''; // Added empty label for padding
-										if (value === 1) return 'Soft';
-										if (value === 5) return 'Medium';
-										if (value === 10) return 'Hard';
+										if (value === 1) return 'Low';
+										if (value === 15) return 'Medium';
+										if (value === 30) return 'Heavy';
 										return '';
 									}
 								},
 								title: {
 									display: true,
-									text: 'Consistency'
+									text: 'Weight'
 								}
 							}
 						}
@@ -74,15 +74,15 @@
 		}
 	}
 
-	let stoolInputValue = '';
+	let weightInputValue = '';
 
-	function addPoopingEvent() {
-		if (!chart) {
+	function addWeightEvent() {
+		if (!newChart) {
 			throw new Error('Chart not initialized');
 		}
 
-		if (!stoolInputValue) {
-			throw new Error('Please select a consistency level');
+		if (!weightInputValue) {
+			throw new Error('Please select a weight');
 		}
 
 		const newEvent = {
@@ -90,12 +90,12 @@
 				month: '2-digit',
 				day: '2-digit'
 			}).format(new Date()),
-			consistency: parseInt(stoolInputValue) // Assuming the input string is a number.
+			weight: parseInt(weightInputValue) // Assuming the input string is a number.
 		};
 
-		chart.data.labels.push(newEvent.date);
-		chart.data.datasets[0].data.push(newEvent.consistency);
-		chart.update();
+		newChart.data.labels.push(newEvent.date);
+		newChart.data.datasets[0].data.push(newEvent.weight);
+		newChart.update();
 	}
 
 	onMount(() => {
@@ -105,33 +105,28 @@
 
 <div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5 flex">
 	<aside class="flex-1">
-		<h3 class="text-center py-5">Stool Tracker</h3>
+		<h3 class="text-center py-5">Weight Tracker</h3>
 		<div class="flex justify-center items-center gap-6 m-10">
-			<label for="poopy_consitency">
-				<span class="sr-only">Consistency</span>
-				<select
-					bind:value={stoolInputValue}
-					name="poopy_consistency"
-					id="poopy_consistency"
-					class="text-black"
-				>
-					<option value="" disabled selected>Consistency Scale</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
+			<label for="weight_consitency">
+				<span class="sr-only">Weight</span>
+				<select bind:value={weightInputValue} name="weight" id="weight" class="text-black">
+					<option value="" disabled selected>Weight</option>
+					<option value="0">0</option>
 					<option value="5">5</option>
-					<option value="6">5</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
 					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+					<option value="35">35</option>
+					<option value="40">40</option>
+					<option value="45">45</option>
 				</select>
 			</label>
 			<button
 				class="btn btn-secondary"
 				on:click={() => {
-					addPoopingEvent();
+					addWeightEvent();
 				}}
 			>
 				Add
@@ -140,6 +135,6 @@
 	</aside>
 
 	<section class="w-full bg-white p-4 rounded-xl shadow-xl">
-		<canvas id="poopyChart"></canvas>
+		<canvas id="weightChart"></canvas>
 	</section>
 </div>
