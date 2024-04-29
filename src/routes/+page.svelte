@@ -84,11 +84,10 @@
 		petVaccines = [...pet.vaccines];
 		stool = [...pet.stool];
 
-		
 		const interval = setInterval(checkReminders, 1000); // Run every 1 seconds
 
 		return () => {
-			clearInterval(interval); 
+			clearInterval(interval);
 		};
 	});
 
@@ -119,7 +118,6 @@
 	//---------------------------------------
 
 	function deleteExercise(index) {
-		
 		petExercises = [...petExercises.slice(0, index), ...petExercises.slice(index + 1)];
 	}
 	//---------------------------------------
@@ -137,7 +135,6 @@
 			pulse: pulseInputValue
 		};
 		petHealth = [...petHealth, newHealth];
-		
 	}
 	//---------------------------------------
 	function deleteHealth(index) {
@@ -155,7 +152,7 @@
 			}
 		});
 		exercise.exercise = value;
-		editedExercise = null; 
+		editedExercise = null;
 	}
 	//---------------------------------------
 	function editVaccines(vaccine) {
@@ -178,55 +175,71 @@
 		<!--*----------DESCRIPTION DIV------------->
 		<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 		<div class="container mx-auto">
-			<div class="flex justify-center">
-				<div class="avatar">
-					<div class="w-56 mask mask-hexagon">
-						<img src="/rohan.jpg" alt="Rohan" />
+			<div class="flex flex-row justify-around">
+				<div class="card w-96 bg-base-100 shadow-xl m-6">
+					<div class="avatar items-center justify-evenly m-8">
+						<div class="w-56 mask mask-hexagon">
+							<img src="/rohan.jpg" alt="Rohan" />
+						</div>
+					</div>
+
+					<div class="flex flex-col items-start mx-auto">
+						<div class="flex">
+							<h3 class="text-1xl font-bold text-primary mr-1">Breed:</h3>
+							<p>{pet.breed}</p>
+						</div>
+						<div class="flex">
+							<h3 class="text-1xl font-bold text-primary mr-1">Age:</h3>
+							<p>{pet.age}</p>
+						</div>
+						<div class="flex">
+							<h3 class="text-1xl font-bold text-primary mr-1">Sex:</h3>
+							<p>{pet.sex}</p>
+						</div>
+						<!-- <h3 class="text-1xl">Age: {pet.age}</h3>
+						<h3 class="text-1xl">Sex: {pet.sex}</h3> -->
 					</div>
 				</div>
-			
-				<div class="self-center">
-					<h3 class="text-2xl">Breed: {pet.breed}</h3>
-					<h3 class="text-2xl">Age: {pet.age}</h3>
-					<h3 class="text-2xl">Sex: {pet.sex}</h3>
+				<!--*----------------------------------->
+
+				<!--*----------FEEDING DIV------------->
+				<div class="flex">
+					<div class="card w-96 bg-base-100 shadow-xl m-8">
+						<figure>
+							<img src="/dog-food.jpg" alt="dogfood" />
+						</figure>
+						<h3 class="text-1xl font-bold text-primary mr-1 text-center py-5">Food Instructions</h3>
+						<p class="text-center">{pet.feeding.am}</p>
+						<p class="text-center">{pet.feeding.pm}</p>
+					</div>
+					<!--*----------------------------------->
+
+					<!--*----------MEDICATION DIV------------->
+					<div class="card w-96 bg-base-100 shadow-xl m-8">
+						<figure>
+							<img src="/meds.jpeg" alt="medication" />
+						</figure>
+						<h3 class="text-1xl font-bold text-primary mr-1 text-center py-5">Medications</h3>
+						<ul class="m-2">
+							<li class="text-center">
+								{pet.medications[0].name}
+								{pet.medications[0].dose}
+								{pet.medications[0].instructions}
+							</li>
+							<li class="text-center">
+								{pet.medications[1].name}
+								{pet.medications[1].dose}
+								{pet.medications[1].instructions}
+							</li>
+							<li class="text-center">
+								{pet.medications[2].name}
+								{pet.medications[2].dose}
+								{pet.medications[2].instructions}
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<!--*----------------------------------->
-
-			<!--*----------FEEDING DIV------------->
-			<div class="display-flex row">
-			<div class="card w-96 bg-base-100 shadow-xl">
-				<figure>
-					<img src="/dog-food.jpg" alt="dogfood" />
-				</figure>
-				<h3 class="text-center py-5">Food Instructions</h3>
-				<p class="text-center">{pet.feeding.am}</p>
-				<p class="text-center">{pet.feeding.pm}</p>
-			</div>
-			<!--*----------------------------------->
-
-			<!--*----------MEDICATION DIV------------->
-			<div class="bg-black w-1/3 h-40 my-10 mx-10">
-				<h3 class="text-center py-5">Medications</h3>
-				<ul>
-					<li class="text-center">
-						{pet.medications[0].name}
-						{pet.medications[0].dose}
-						{pet.medications[0].instructions}
-					</li>
-					<li class="text-center">
-						{pet.medications[1].name}
-						{pet.medications[1].dose}
-						{pet.medications[1].instructions}
-					</li>
-					<li class="text-center">
-						{pet.medications[2].name}
-						{pet.medications[2].dose}
-						{pet.medications[2].instructions}
-					</li>
-				</ul>
-			</div>
-		</div>
 			<!--*----------------------------------->
 
 			<!--*------------EXERCISE TRACKER DIV-------------->
@@ -284,7 +297,7 @@
 					<WeightChart name={pet.name} weight={pet.weight} />
 				</div>
 			</div>
-	
+
 			<!--*----------------------------------->
 
 			<!--*----------------------------------->
@@ -390,7 +403,6 @@
 		<div
 			class="fixed bottom-0 right-0 m-4 z-20 border-2 border-slate-500 w-full max-w-lg bg-white shadow-lg rounded p-4"
 		>
-			
 			<p>{currentReminder.message}</p>
 		</div>
 	{/if}
