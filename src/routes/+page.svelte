@@ -1,9 +1,6 @@
 <script>
-	import Button from '$lib/components/ui/button/button.svelte';
-	import { onMount, onDestroy } from 'svelte';
-	// import Chart from '../components/chart.svelte';
+	import { onMount } from 'svelte';
 	import Pet from '../pet.json';
-	import Reminder from '../components/Reminder.svelte';
 	import PoopChart from '../components/PoopChart.svelte';
 	import WeightChart from '../components/WeightChart.svelte';
 
@@ -23,7 +20,6 @@
 	let respInputValue = '';
 	let pulseInputValue = '';
 	let errorMessage = '';
-	let scheduledReminders = [];
 
 	/**
 	 * Generate Reminder Times
@@ -91,10 +87,6 @@
 			clearInterval(interval);
 		};
 	});
-
-	function dismissReminder(id) {
-		reminders = reminders.filter((reminder) => reminder.id !== id);
-	}
 
 	function addExercise() {
 		if (!exerciseInputValue && !exerciseTime) {
@@ -209,8 +201,7 @@
 							<h3 class="text-1xl font-bold text-primary mr-1">Sex:</h3>
 							<p>{pet.sex}</p>
 						</div>
-						<!-- <h3 class="text-1xl">Age: {pet.age}</h3>
-						<h3 class="text-1xl">Sex: {pet.sex}</h3> -->
+				
 					</div>
 				</div>
 				<!--*----------------------------------->
@@ -254,6 +245,7 @@
 				</div>
 			</div>
 			<!--*----------------------------------->
+			<!--*----------EXERCISE DIV------------->
 			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg">
 				<div class="opacity-100">
 					<h3 class="text-center py-5">Exercise Tracker</h3>
@@ -343,9 +335,6 @@
 					</table>
 				</div>
 			</div>
-
-			<!--*------------EXERCISE TRACKER DIV-------------->
-
 			<!--*--------------------------------- -->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
@@ -357,7 +346,7 @@
 
 			<!--*----------------------------------->
 
-			<!--*----------------------------------->
+			<!--*-------------HEALTH TRACKER DIV---------------------->
 			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg mt-10">
 				<div class="opacity-100">
 					<h3 class="text-center py-5">Health Tracker</h3>
@@ -494,7 +483,7 @@
 
 	{#if currentReminder}
 		<div
-			class="fixed bottom-0 right-0 m-4 z-20 border-2 border-slate-500 w-full max-w-lg bg-white shadow-lg rounded p-4"
+			class="fixed bottom-0 right-0 m-4 z-20 border-2 border-slate-500 w-full max-w-lg bg-white shadow-lg rounded p-4 text-black"
 		>
 			<p>{currentReminder.message}</p>
 		</div>
