@@ -7,8 +7,6 @@
 	let phoneNumber = '801123456';
 </script>
 
-<!-- Responsible for routing features, this is the file that gets serves in the browser-->
-
 <slot />
 <div class="container mx-auto bg-white flex flex-col">
 	<h1 class="text-5xl text-center m-10 text-black">SERVICES</h1>
