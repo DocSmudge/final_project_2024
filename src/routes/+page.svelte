@@ -349,7 +349,7 @@
 			<!--*--------------------------------- -->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
-			<div class="container justify-center m-auto w-5/6 rounded-lg mt-8">
+			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg mt-10">
 				<div>
 					<WeightChart name={pet.name} weight={pet.weight} />
 				</div>
@@ -358,7 +358,7 @@
 			<!--*----------------------------------->
 
 			<!--*----------------------------------->
-			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg">
+			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg mt-10">
 				<div class="opacity-100">
 					<h3 class="text-center py-5">Health Tracker</h3>
 					<div class="flex justify-center">
