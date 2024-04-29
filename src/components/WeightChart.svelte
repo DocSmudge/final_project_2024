@@ -103,7 +103,7 @@
 	});
 </script>
 
-<div class="container h-fit my-10 mx-auto p-5 flex flex-col">
+<div class="container h-fit my-8 mx-auto p-5 flex flex-col">
 	<aside class="flex-1">
 		<h3 class="text-center">Weight Tracker</h3>
 		<div class="flex justify-center items-center gap-6 mt-2 mb-10">

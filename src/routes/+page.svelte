@@ -384,7 +384,7 @@
 			*--------------------------------- -->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
-			<div class="container justify-center m-auto w-5/6 rounded-lg mt-10">
+			<div class="container justify-center m-auto w-5/6 rounded-lg mt-8">
 				<div>
 					<WeightChart name={pet.name} weight={pet.weight} />
 				</div>
