@@ -84,11 +84,11 @@
 		petVaccines = [...pet.vaccines];
 		stool = [...pet.stool];
 
-		// Mount the scheduled reminders
+		
 		const interval = setInterval(checkReminders, 1000); // Run every 1 seconds
 
 		return () => {
-			clearInterval(interval); // on unMount clear the interval
+			clearInterval(interval); 
 		};
 	});
 
@@ -119,7 +119,7 @@
 	//---------------------------------------
 
 	function deleteExercise(index) {
-		// console.log(index);
+		
 		petExercises = [...petExercises.slice(0, index), ...petExercises.slice(index + 1)];
 	}
 	//---------------------------------------
@@ -137,7 +137,7 @@
 			pulse: pulseInputValue
 		};
 		petHealth = [...petHealth, newHealth];
-		// console.log(petHealth);
+		
 	}
 	//---------------------------------------
 	function deleteHealth(index) {
@@ -155,7 +155,7 @@
 			}
 		});
 		exercise.exercise = value;
-		editedExercise = null; // RESET EDIT STATE
+		editedExercise = null; 
 	}
 	//---------------------------------------
 	function editVaccines(vaccine) {
@@ -184,7 +184,7 @@
 						<img src="/rohan.jpg" alt="Rohan" />
 					</div>
 				</div>
-				<!-- <div class="bg-white w-72 h-72 mr-10"></div> -->
+			
 				<div class="self-center">
 					<h3 class="text-2xl">Breed: {pet.breed}</h3>
 					<h3 class="text-2xl">Age: {pet.age}</h3>
@@ -284,11 +284,7 @@
 					<WeightChart name={pet.name} weight={pet.weight} />
 				</div>
 			</div>
-			<!-- <h3 class="text-center py-5">Weight Tracker</h3>
-				<div class="flex justify-center">
-					<input class="text-center py-3 mx-5" type="text" placeholder="Weight (lbs)" />
-					<button class="btn btn-secondary">Add</button>
-				</div> -->
+	
 			<!--*----------------------------------->
 
 			<!--*----------------------------------->
@@ -394,7 +390,7 @@
 		<div
 			class="fixed bottom-0 right-0 m-4 z-20 border-2 border-slate-500 w-full max-w-lg bg-white shadow-lg rounded p-4"
 		>
-			<!-- <p>{currentReminder.id}</p> -->
+			
 			<p>{currentReminder.message}</p>
 		</div>
 	{/if}
