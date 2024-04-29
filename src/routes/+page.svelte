@@ -17,6 +17,7 @@
 	$: petVaccines = [];
 	$: stool = null;
 
+	let exerciseTime = null;
 	let exerciseInputValue = '';
 	let tempInputValue = '';
 	let respInputValue = '';
@@ -96,7 +97,7 @@
 	}
 
 	function addExercise() {
-		if (!exerciseInputValue) {
+		if (!exerciseInputValue && !exerciseTime) {
 			return;
 		}
 
@@ -109,11 +110,13 @@
 		const newExercise = {
 			id: pet.exercises.length,
 			date,
-			time: '30 minutes',
+			time: exerciseTime,
 			exercise: exerciseInputValue
 		};
 
 		petExercises = [...petExercises, newExercise];
+		exerciseInputValue = '';
+		exerciseTime = '';
 	}
 	//---------------------------------------
 
@@ -241,9 +244,98 @@
 				</div>
 			</div>
 			<!--*----------------------------------->
+			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg">
+				<div class="opacity-100">
+					<h3 class="text-center py-5">Exercise Tracker</h3>
+					<div class="flex justify-center">
+						<input
+							class="text-center py-3 mx-5 text-white"
+							type="text"
+							placeholder="Exercise Name"
+							bind:value={exerciseInputValue}
+						/>
+						<input
+							class="text-center py-3 mx-5 text-white"
+							type="text"
+							placeholder="Time"
+							bind:value={exerciseTime}
+						/>
+						<button on:click={addExercise} class="btn btn-secondary">Add</button>
+					</div>
+					<table class="table bg-base-100 m-10">
+						<!-- head -->
+						<thead>
+							<tr>
+								<th></th>
+								<th>Date</th>
+								<th>Time</th>
+								<th>Exercise</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- loop through petExercises -->
+							{#each petExercises as exercise, index}
+								<tr class="hover">
+									<th>{index + 1}</th>
+									<td>
+										{exercise.date}
+									</td>
+									<td>
+										{exercise.time}
+									</td>
+									<td>
+										{#if editedExercise === exercise}
+											<input
+												class="text-white"
+												type="text"
+												bind:value={exercise.exercise}
+												on:keydown={(event) => {
+													if (event.key === 'Enter') {
+														saveExercise(index, event.target.value);
+													}
+												}}
+											/>
+										{:else}
+											<span> {exercise.exercise}</span>
+										{/if}
+									</td>
+									<td>
+										<div>
+											{#if editedExercise === exercise}
+												<button
+													on:click={() => {
+														saveExercise(index, exercise.exercise);
+													}}
+													class="btn btn-secondary"
+												>
+													Save
+												</button>
+											{:else}
+												<button
+													on:click={() => {
+														editExercise(exercise);
+													}}
+													class="btn btn-secondary"
+												>
+													Edit
+												</button>
+												<button on:click={() => deleteExercise(index)} class="btn btn-secondary">
+													Delete
+												</button>
+											{/if}
+										</div>
+									</td>
+								</tr>
+							{/each}
+							<!-- end loop -->
+						</tbody>
+					</table>
+				</div>
+			</div>
 
 			<!--*------------EXERCISE TRACKER DIV-------------->
-			<div class="container bg-black w-5/6 h-60 my-10 mx-auto">
+			<!-- <div class="container bg-black w-5/6 h-60 my-10 mx-auto">
 				<h3 class="text-center py-5">Exercise Tracker</h3>
 				<div class="flex justify-center">
 					<input
@@ -289,10 +381,10 @@
 					{/each}
 				</ul>
 			</div>
-			<!--*----------------------------------->
+			*--------------------------------- -->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
-			<div class="container bg-black w-5/6 h-auto my-10 mx-auto">
+			<div class="container justify-center m-auto w-5/6 rounded-lg mt-10">
 				<div>
 					<WeightChart name={pet.name} weight={pet.weight} />
 				</div>
