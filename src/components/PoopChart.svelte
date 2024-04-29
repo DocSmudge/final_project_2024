@@ -17,7 +17,7 @@
 			labels: stool.map((s) => s.date),
 			datasets: [
 				{
-					label: `${name} POOPIES`,
+					label: `${name} Stool`,
 					// data: [10, 1, 1, 1, 1, 1], // Values corresponding to 'soft'
 					data: stool.map((s) => s.scale),
 					borderColor: 'rgba(255, 99, 132, 1)',
@@ -103,7 +103,7 @@
 	});
 </script>
 
-<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5 flex">
+<div class="container bg-base-100 w-5/6 h-fit my-10 mx-auto p-5 flex rounded-lg">
 	<aside class="flex-1">
 		<h3 class="text-center py-5">Stool Tracker</h3>
 		<div class="flex justify-center items-center gap-6 m-10">
@@ -113,7 +113,7 @@
 					bind:value={stoolInputValue}
 					name="poopy_consistency"
 					id="poopy_consistency"
-					class="text-black"
+					class="text-white py-3 mx-5"
 				>
 					<option value="" disabled selected>Consistency Scale</option>
 					<option value="1">1</option>

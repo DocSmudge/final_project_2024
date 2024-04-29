@@ -130,6 +130,12 @@
 			errorMessage = 'Please fill out all of the fields';
 			return;
 		}
+		const date = new Intl.DateTimeFormat(window.navigator.language, {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit'
+		}).format(new Date());
+
 		const newHealth = {
 			id: pet.health.length,
 			date,
@@ -137,6 +143,10 @@
 			respirations: respInputValue,
 			pulse: pulseInputValue
 		};
+		console.log(newHealth);
+		tempInputValue = '';
+		respInputValue = '';
+		pulseInputValue = '';
 		petHealth = [...petHealth, newHealth];
 	}
 	//---------------------------------------
@@ -179,7 +189,7 @@
 		<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 		<div class="container mx-auto">
 			<div class="flex flex-row justify-around">
-				<div class="card w-96 bg-base-100 shadow-xl m-6">
+				<div class="card w-96 bg-base-200 shadow-xl m-6">
 					<div class="avatar items-center justify-evenly m-8">
 						<div class="w-56 mask mask-hexagon">
 							<img src="/rohan.jpg" alt="Rohan" />
@@ -335,53 +345,8 @@
 			</div>
 
 			<!--*------------EXERCISE TRACKER DIV-------------->
-			<!-- <div class="container bg-black w-5/6 h-60 my-10 mx-auto">
-				<h3 class="text-center py-5">Exercise Tracker</h3>
-				<div class="flex justify-center">
-					<input
-						class="text-center py-3 mx-5 text-black"
-						type="text"
-						placeholder="Exercise Name"
-						bind:value={exerciseInputValue}
-					/>
-					<button on:click={addExercise} class="btn btn-secondary">Add</button>
-				</div>
-				<ul>
-					{#each petExercises as exercise, index}
-						<li>
-							{#if editedExercise === exercise}
-								<input
-									class="text-black"
-									type="text"
-									bind.value={exercise.exercise}
-									on:keydown={(event) => {
-										if (event.key === 'Enter') {
-											saveExercise(index, event.target.value);
-										}
-									}}
-								/>
-							{:else}
-								<div>
-									<strong>Date:</strong>
-									{exercise.date}, <strong>Time:</strong>
-									{exercise.time}, <strong>Exercise:</strong>
-									{exercise.exercise}
-									<button
-										on:click={() => {
-											editExercise(exercise);
-										}}
-										class="btn btn-secondary mx-5">Edit</button
-									>
-									<button on:click={() => deleteExercise(index)} class="btn btn-secondary"
-										>Delete</button
-									>
-								</div>
-							{/if}
-						</li>
-					{/each}
-				</ul>
-			</div>
-			*--------------------------------- -->
+
+			<!--*--------------------------------- -->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
 			<div class="container justify-center m-auto w-5/6 rounded-lg mt-8">
@@ -393,58 +358,71 @@
 			<!--*----------------------------------->
 
 			<!--*----------------------------------->
-
-			<div>
-				<div class="container bg-black w-5/6 h-fit my-10 mx-auto">
+			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg">
+				<div class="opacity-100">
 					<h3 class="text-center py-5">Health Tracker</h3>
 					<div class="flex justify-center">
 						<input
-							class="text-center py-3 mx-5 text-black"
+							class="text-center py-3 mx-5 text-white"
 							type="text"
 							placeholder="Temperature"
 							bind:value={tempInputValue}
 						/>
 						<input
-							class="text-center py-3 mx-5 text-black"
+							class="text-center py-3 mx-5 text-white"
 							type="text"
 							placeholder="Respirations"
 							bind:value={respInputValue}
 						/>
 						<input
-							class="text-center py-3 mx-5 text-black"
+							class="text-center py-3 mx-5 text-white"
 							type="text"
 							placeholder="Pulse"
 							bind:value={pulseInputValue}
 						/>
 						<button on:click={addHealth} class="btn btn-secondary">Add</button>
 					</div>
-					<div class="flex flex-col justify-center">
-						<ul>
-							<div>
-								<strong>Date</strong>
-								<strong>Temperature</strong>
-								<strong>Respirations</strong>
-								<strong>Pulse</strong>
-							</div>
-							{#if errorMessage}
-								<p class="text-red-600">{errorMessage}</p>
-							{/if}
+					<table class="table bg-base-100 m-10">
+						<!-- head -->
+						<thead>
+							<tr>
+								<th></th>
+								<th>Date</th>
+								<th>Temperature</th>
+								<th>Respirations</th>
+								<th>Pulse</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- loop through petExercises -->
 							{#each petHealth as health, index}
-								<li class="list-none m-10">
-									<div class="flex">
-										<p class="mr-2">{health.temperature} degrees</p>
-										<p class="mr-2">{health.respirations} breaths per minute</p>
-										<p class="mr-2">{health.pulse} beats per minute</p>
+								<tr class="hover">
+									<th>{index + 1}</th>
+									<td>
+										{health.date}
+									</td>
+									<td>
+										{health.temperature}
+									</td>
+									<td>
+										{health.respirations}
+									</td>
+									<td>
+										{health.pulse}
+									</td>
+									<td>
 										<button on:click={() => deleteHealth(index)} class="btn btn-secondary"
 											>Delete</button
 										>
-									</div>
-								</li>
+									</td>
+								</tr>
 							{/each}
-						</ul>
-					</div>
+							<!-- end loop -->
+						</tbody>
+					</table>
 				</div>
 			</div>
+
 			<!--*----------------------------------->
 
 			<!--*------------STOOL TRACKER DIV-------------->
