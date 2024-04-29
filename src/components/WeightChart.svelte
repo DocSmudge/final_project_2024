@@ -7,18 +7,17 @@
 	export let weight = [];
 
 	$: newChart = undefined;
-	// $: console.log(chart);
+	
 
 	function chartRender() {
 		const canvas = document.querySelector('#weightChart');
 
 		const data = {
-			// labels: ['02/10', '02/13', '02/14', '03/12', '03/14', '03/20'],
+		
 			labels: weight.map((w) => w.date),
 			datasets: [
 				{
 					label: `${name} WEIGHT`,
-					// data: [10, 1, 1, 1, 1, 1], // Values corresponding to 'soft'
 					data: weight.map((w) => w.scale),
 					borderColor: 'rgba(255, 99, 132, 1)',
 					borderWidth: 1
@@ -37,7 +36,7 @@
 							x: {
 								type: 'time',
 								time: {
-									parser: 'MM/dd', // Corrected format
+									parser: 'MM/dd', 
 									unit: 'day',
 									displayFormats: {
 										day: 'MM/dd'
@@ -50,12 +49,12 @@
 							},
 							y: {
 								type: 'linear',
-								min: 0, // Adjusted minimum value
-								max: 30, // Adjusted maximum value
+								min: 0, 
+								max: 30, 
 								ticks: {
 									stepSize: 1,
 									callback: function (value) {
-										if (value === 0) return ''; // Added empty label for padding
+										if (value === 0) return ''; 
 										if (value === 1) return 'Low';
 										if (value === 15) return 'Medium';
 										if (value === 30) return 'Heavy';
@@ -90,7 +89,7 @@
 				month: '2-digit',
 				day: '2-digit'
 			}).format(new Date()),
-			weight: parseInt(weightInputValue) // Assuming the input string is a number.
+			weight: parseInt(weightInputValue) 
 		};
 
 		newChart.data.labels.push(newEvent.date);

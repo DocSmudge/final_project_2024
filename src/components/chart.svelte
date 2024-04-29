@@ -1,9 +1,9 @@
 <!-- Chart.svelte -->
 <script>
   import { onMount } from 'svelte';
-  import { Chart } from 'chart.js/auto'; // Import Chart class from Chart.js
+  import { Chart } from 'chart.js/auto';
   
-  let chart; // Declare a variable to hold the chart instance
+  let chart; 
   
   onMount(() => {
     const ctx = document.getElementById('myChart').getContext('2d');

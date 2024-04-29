@@ -7,8 +7,7 @@
 	export let stool = [];
 
 	$: chart = undefined;
-	// $: console.log(chart);
-
+	
 	function chartRender() {
 		const canvas = document.querySelector('#poopyChart');
 
@@ -37,7 +36,7 @@
 							x: {
 								type: 'time',
 								time: {
-									parser: 'MM/dd', // Corrected format
+									parser: 'MM/dd', 
 									unit: 'day',
 									displayFormats: {
 										day: 'MM/dd'
@@ -50,12 +49,12 @@
 							},
 							y: {
 								type: 'linear',
-								min: 0, // Adjusted minimum value
-								max: 11, // Adjusted maximum value
+								min: 0, 
+								max: 11,
 								ticks: {
 									stepSize: 1,
 									callback: function (value) {
-										if (value === 0) return ''; // Added empty label for padding
+										if (value === 0) return ''; 
 										if (value === 1) return 'Soft';
 										if (value === 5) return 'Medium';
 										if (value === 10) return 'Hard';
@@ -90,7 +89,7 @@
 				month: '2-digit',
 				day: '2-digit'
 			}).format(new Date()),
-			consistency: parseInt(stoolInputValue) // Assuming the input string is a number.
+			consistency: parseInt(stoolInputValue)
 		};
 
 		chart.data.labels.push(newEvent.date);
