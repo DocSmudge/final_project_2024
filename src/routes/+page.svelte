@@ -180,9 +180,9 @@
 		<!--*----------DESCRIPTION DIV------------->
 		<h1 class="text-5xl text-center m-10">Pet Profile</h1>
 		<div class="container mx-auto">
-			<div class="flex flex-row justify-around">
-				<div class="card w-96 bg-base-200 shadow-xl m-6">
-					<div class="avatar items-center justify-evenly m-8">
+			<div class="flex flex-row w-5/6 mx-auto">
+				<div class="card w-96 bg-base-200 shadow-xl m-8">
+					<div class="avatar items-center m-8">
 						<div class="w-56 mask mask-hexagon">
 							<img src="/rohan.jpg" alt="Rohan" />
 						</div>
