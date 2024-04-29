@@ -1,38 +1,17 @@
-# create-svelte
+# Pet Care Reminder App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This app was created for my final project. It's an app that has multiple features designed to provide pet parents with all the tools they need to take care of their furry friend in one convenient place. Some of the features include:
+* Feeding Instructions
+* Medication Instructions
+* Exercise Tracker
+* Weight Tracker
+* Health Tracker
+* Stool Tracker
+* Medical Tracker
+* Services Page
+* Calendar 
 
-## Creating a project
+## Svelte
 
-If you're seeing this, you've probably already done this step. Congrats!
+I chose to use Svelte as my framework because I really enjoyed working within this framework for one of our To Do assignments. I also have heard that it's up and coming in the industry and Thor teaches it in one of his classes so I thought it would be a good idea to start learning it now. 
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

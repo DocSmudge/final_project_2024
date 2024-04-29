@@ -11,8 +11,6 @@
 	export let appointments = [];
 	export let getCategory;
 
-	// $: console.log(appointments);
-	// $: console.log(value);
 </script>
 
 <CalendarPrimitive.Root
