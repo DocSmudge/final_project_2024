@@ -432,38 +432,61 @@
 			<!--*----------------------------------->
 
 			<!--*------------MEDICAL TRACKER DIV-------------->
-			<div class="container bg-black w-5/6 h-fit my-10 mx-auto p-5">
+			<div class="overflow-x-auto bg-base-100 justify-center m-auto w-5/6 rounded-lg mb-10">
 				<h3 class="text-center py-5">Medical Tracker</h3>
 				<div>
-					<ul>
-						{#each pet.vaccines as vaccine, index}
-							<li class="flex">
-								{#if editedVaccine === vaccine}
-									<p class="m-2">{vaccine.type}</p>
-									<input
-										class="text-black"
-										type="text"
-										on:keydown={(event) => {
-											if (event.key === 'Enter') {
-												saveVaccines(index, event.target.value);
-											}
-										}}
-									/>
-								{:else}
-									<div class="flex">
-										<p class="m-2">{vaccine.type}</p>
-										<p class="m-2">{vaccine.date}</p>
-										<button
-											on:click={() => {
-												editVaccines(vaccine);
-											}}
-											class="btn btn-secondary m-2">Edit</button
-										>
-									</div>
-								{/if}
-							</li>
-						{/each}
-					</ul>
+					<table class="table bg-base-100 m-10">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Expiration Date</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each pet.vaccines as vaccine, index}
+								<tr class="hover">
+									{#if editedVaccine === vaccine}
+										<td class="m-2">{vaccine.type}</td>
+										<td class="m-2">
+											<input
+												class="text-white py-3"
+												type="text"
+												on:keydown={(event) => {
+													if (event.key === 'Enter') {
+														saveVaccines(index, event.target.value);
+													}
+												}}
+											/>
+										</td>
+										<td>
+											<button
+												on:click={() => {
+													editVaccines(vaccine);
+												}}
+												class="btn btn-secondary m-2"
+											>
+												Edit
+											</button>
+										</td>
+									{:else}
+										<td class="m-2">{vaccine.type}</td>
+										<td class="m-2">{vaccine.date}</td>
+										<td>
+											<button
+												on:click={() => {
+													editVaccines(vaccine);
+												}}
+												class="btn btn-secondary m-2"
+											>
+												Edit
+											</button>
+										</td>
+									{/if}
+								</tr>
+							{/each}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
