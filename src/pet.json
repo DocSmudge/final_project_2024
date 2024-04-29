@@ -1,155 +1,142 @@
 {
-    "name": "Rohan",
-    "breed": "Australian Shepherd",
-    "age": "8 years",
-    "sex": "Male/Neutered",
-    "feeding": {
-        "am": "3/4c",
-        "pm": "1/2c"
-    },
-    "medications": [
-        {
-            "name": "Alprazolam",
-            "dose": ".25mg",
-            "instructions": "PRN"
-        },
-        {
-            "name": "Cosequin",
-            "dose": "1 tablet",
-            "instructions": "AM"
-        },
-        {
-            "name": "Rimadyl",
-            "dose": "25mg",
-            "instructions": "1 tablet, BID"
-        }
-    ],
-    "vaccines": [
-        {
-            "type": "rabies",
-            "date": "01/02/2024"
-        },
-        {
-            "type": "DAPP",
-            "date": "01/02/2024"
-        },
-        {
-            "type": "Bordetella",
-            "date": "01/02/2024"
-        },
-        {
-            "type": "Leptospirosis",
-            "date": "01/02/2024"
-        },
-        {
-            "type": "Heartworm Prevention",
-            "date": "01/02/2024"
-        },
-        {
-            "type": "Flea/Tick",
-            "date": "01/02/2024"
-        }
-    ],
-    "providers": [
-        {
-            "profession": "Veterinarian",
-            "name": "Dr. Bret Grover",
-            "address": "12720 S Pony Express Rd, Draper UT 84020",
-            "phone": "8015551263"
-        },
-        {
-            "profession": "Groomer",
-            "name": "Sarah Smith",
-            "address": "12345 Grooming St. Draper UT 84020",
-            "phone": "8015651263",
-            "schedule": "www.schedulehere.com"
-        },
-        {
-            "profession": "Daycare",
-            "name": "Happy Paws Kennel",
-            "address": "12345 Kennel St. Draper UT 84020",
-            "phone": "8015651264"
-        }
-    ],
-    "exercises": [
-        {
-            "date": "04/03/24",
-            "time": "30 minutes",
-            "exercise": "Walk"
-        }
-    ],
-    "health": [
-        {
-            "date": "04/03/24",
-            "temperature": "99.9",
-            "respirations": "20",
-            "pulse": "80"
-        }
-    ],
-    "stool": [
-        {
-            "date": "04/10",
-            "scale": 2
-        },
-        {
-            "date": "04/11",
-            "scale": 3
-        },
-        {
-            "date": "04/12",
-            "scale": 5
-        },
-        {
-            "date": "04/13",
-            "scale": 7
-        },
-        {
-            "date": "04/14",
-            "scale": 2
-        },
-        {
-            "date": "04/15",
-            "scale": 8
-        }
-    ],
-    "weight": [
-        {
-            "date": "04/10",
-            "scale": 20
-        },
-        {
-            "date": "04/11",
-            "scale": 23
-        },
-        {
-            "date": "04/12",
-            "scale": 1
-        },
-        {
-            "date": "04/13",
-            "scale": 27
-        },
-        {
-            "date": "04/14",
-            "scale": 22
-        },
-        {
-            "date": "04/15",
-            "scale": 30
-        }
-    ],
-    "appointments": [
-        {
-            "date": "2024-05-16T17:22:13.554Z",
-            "name": "Vet appointment"
-        },
-        {
-            "date": "2024-05-23T17:22:13.554Z",
-            "name": "Grooming appointment"
-        },
-        {
-            "date": "2024-05-03T17:22:13.554Z",
-            "name": "Give Heatworm Prevention"
-        }
-    ]
+	"name": "Rohan",
+	"breed": "Australian Shepherd",
+	"age": "8 years",
+	"sex": "Male/Neutered",
+	"feeding": {
+		"am": "3/4c",
+		"pm": "1/2c"
+	},
+	"medications": [
+		{
+			"name": "Alprazolam",
+			"dose": ".25mg",
+			"instructions": "PRN"
+		},
+		{
+			"name": "Cosequin",
+			"dose": "1 tablet",
+			"instructions": "AM"
+		},
+		{
+			"name": "Rimadyl",
+			"dose": "25mg",
+			"instructions": "1 tablet, BID"
+		}
+	],
+	"vaccines": [
+		{
+			"type": "rabies",
+			"date": "01/02/2024"
+		},
+		{
+			"type": "DAPP",
+			"date": "01/02/2024"
+		},
+		{
+			"type": "Bordetella",
+			"date": "01/02/2024"
+		},
+		{
+			"type": "Leptospirosis",
+			"date": "01/02/2024"
+		},
+		{
+			"type": "Heartworm Prevention",
+			"date": "01/02/2024"
+		},
+		{
+			"type": "Flea/Tick",
+			"date": "01/02/2024"
+		}
+	],
+	"providers": [
+		{
+			"profession": "Veterinarian",
+			"name": "Dr. Bret Grover",
+			"address": "12720 S Pony Express Rd, Draper UT 84020",
+			"phone": "8015551263"
+		},
+		{
+			"profession": "Groomer",
+			"name": "Sarah Smith",
+			"address": "12345 Grooming St. Draper UT 84020",
+			"phone": "8015651263",
+			"schedule": "www.schedulehere.com"
+		},
+		{
+			"profession": "Daycare",
+			"name": "Happy Paws Kennel",
+			"address": "12345 Kennel St. Draper UT 84020",
+			"phone": "8015651264"
+		}
+	],
+	"exercises": [
+		{
+			"date": "04/03/24",
+			"time": "30 minutes",
+			"exercise": "Walk"
+		}
+	],
+	"health": [
+		{
+			"date": "04/03/24",
+			"temperature": "99.9",
+			"respirations": "20",
+			"pulse": "80"
+		}
+	],
+	"stool": [
+		{
+			"date": "04/10",
+			"scale": 2
+		},
+		{
+			"date": "04/11",
+			"scale": 3
+		},
+		{
+			"date": "04/12",
+			"scale": 5
+		},
+		{
+			"date": "04/13",
+			"scale": 7
+		},
+		{
+			"date": "04/14",
+			"scale": 2
+		},
+		{
+			"date": "04/15",
+			"scale": 8
+		}
+	],
+	"appointments": [
+		{
+			"date": "2024-04-17T17:22:13.554Z",
+			"name": "Vet appointment",
+			"tags": ["vaccine", "checkup"]
+		},
+		{
+			"date": "2024-04-27T17:22:13.554Z",
+			"name": "Grooming appointment",
+			"tags": ["grooming"]
+		},
+		{
+			"date": "2024-04-28T17:22:13.554Z",
+			"name": "Give Heatworm Prevention",
+			"tags": ["medication"]
+		},
+		{
+			"date": "2024-04-28T17:22:13.554Z",
+			"name": "Running",
+			"tags": ["exercise"]
+		},
+		{
+			"date": "2024-04-29T17:22:13.554Z",
+			"name": "Excercise",
+			"tags": ["exercise"]
+		}
+	]
 }

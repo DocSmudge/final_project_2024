@@ -7,30 +7,37 @@
 	export let weekdayFormat = 'short';
 	let className = undefined;
 	export { className as class };
+
+	export let appointments = [];
+	export let getCategory;
+
+	// $: console.log(appointments);
+	// $: console.log(value);
 </script>
 
 <CalendarPrimitive.Root
 	bind:value
 	bind:placeholder
 	{weekdayFormat}
-	class={cn('p-3', className)}
+	class={cn(className)}
 	{...$$restProps}
 	on:keydown
 	let:months
 	let:weekdays
 >
-	<Calendar.Header >
-		<Calendar.PrevButton />
-		<Calendar.Heading />
-		<Calendar.NextButton />
+	<Calendar.Header class="mb-2">
+		<Calendar.PrevButton class="w-11 h-11" />
+		<Calendar.Heading class="font-bold text-2xl" />
+		<Calendar.NextButton class="w-11 h-11" />
 	</Calendar.Header>
-	<Calendar.Months >
+
+	<Calendar.Months class="">
 		{#each months as month}
 			<Calendar.Grid>
 				<Calendar.GridHead>
-					<Calendar.GridRow>
+					<Calendar.GridRow class="mb-4">
 						{#each weekdays as weekday}
-							<Calendar.HeadCell>
+							<Calendar.HeadCell class="w-full">
 								{weekday.slice(0, 2)}
 							</Calendar.HeadCell>
 						{/each}
@@ -38,18 +45,22 @@
 				</Calendar.GridHead>
 				<Calendar.GridBody>
 					{#each month.weeks as weekDates}
-						<Calendar.GridRow class="mt-2 w-full">
+						<Calendar.GridRow>
 							{#each weekDates as date}
-								<Calendar.Cell {date}>
-									<Calendar.Day class="" {date} month={month.value}>
-										<div>
-											<span>{date.day}</span>
-											<ul>
-												<!-- <li>hi</li>
-												<li>hello</li> -->
-											</ul>
-										</div>
-									</Calendar.Day>
+								<Calendar.Cell {date} class="w-full h-auto border-[0.5px]">
+									<Calendar.Day
+										class="w-full h-full aspect-square justify-start items-start flex-col p-2"
+										{date}
+										{getCategory}
+										appointments={appointments.filter((a) => {
+											const aDate = a.date;
+											const cDate = `${date.year}-${date.month > 10 ? date.month : '0' + date.month}-${date.day > 10 ? date.day : '0' + date.day}`;
+											if (aDate.includes(cDate)) {
+												return a;
+											}
+										})}
+										month={month.value}
+									/>
 								</Calendar.Cell>
 							{/each}
 						</Calendar.GridRow>

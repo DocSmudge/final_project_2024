@@ -6,7 +6,7 @@
 </script>
 
 <CalendarPrimitive.Header
-	class={cn("relative flex w-full items-center justify-between pt-1", className)}
+	class={cn("relative flex w-full min-h-11 items-center justify-between pt-1", className)}
 	{...$$restProps}
 >
 	<slot />
