@@ -4,7 +4,7 @@
 	let vetURL =
 		'https://www.banfield.com/visit-information/schedule-appointment/guest?hospitalId=1066';
 	let groomerPhoneNumber = '8015651263';
-	let phoneNumber = '801123456';
+	let phoneNumber = '8014234562';
 </script>
 
 <slot />
@@ -39,9 +39,7 @@
 			class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
 		>
 			<h3 class="m-2">Name: {Pet.providers[1].name}</h3>
-			<h3 class="m-2">Name: {Pet.providers[1].name}</h3>
-			<h3 class="m-2">Address:{Pet.providers[1].address}</h3>
-			<h3 class="m-2">Name: {Pet.providers[1].name}</h3>
+			<h3 class="m-2">Address: {Pet.providers[1].address}</h3>
 			<a class="m-2 text-blue-600" href={'tel:' + groomerPhoneNumber}
 				>Call us at {groomerPhoneNumber}</a
 			>
@@ -58,8 +56,8 @@
 		<div
 			class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
 		>
-			<h3 class="m-2">{Pet.providers[2].name}</h3>
-			<h3 class="m-2">{Pet.providers[2].address}</h3>
+			<h3 class="m-2">Name: {Pet.providers[2].name}</h3>
+			<h3 class="m-2">Address: {Pet.providers[2].address}</h3>
 			<a class="m-2 text-blue-600" href={'tel:' + phoneNumber}>Call us at {phoneNumber}</a>
 		</div>
 	</div>
