@@ -7,13 +7,11 @@
 	export let weight = [];
 
 	$: newChart = undefined;
-	
 
 	function chartRender() {
 		const canvas = document.querySelector('#weightChart');
 
 		const data = {
-		
 			labels: weight.map((w) => w.date),
 			datasets: [
 				{
@@ -36,7 +34,7 @@
 							x: {
 								type: 'time',
 								time: {
-									parser: 'MM/dd', 
+									parser: 'MM/dd',
 									unit: 'day',
 									displayFormats: {
 										day: 'MM/dd'
@@ -49,12 +47,12 @@
 							},
 							y: {
 								type: 'linear',
-								min: 0, 
-								max: 30, 
+								min: 0,
+								max: 30,
 								ticks: {
 									stepSize: 1,
 									callback: function (value) {
-										if (value === 0) return ''; 
+										if (value === 0) return '';
 										if (value === 1) return 'Low';
 										if (value === 15) return 'Medium';
 										if (value === 30) return 'Heavy';
@@ -89,7 +87,7 @@
 				month: '2-digit',
 				day: '2-digit'
 			}).format(new Date()),
-			weight: parseInt(weightInputValue) 
+			weight: parseInt(weightInputValue)
 		};
 
 		newChart.data.labels.push(newEvent.date);
@@ -108,7 +106,7 @@
 		<div class="flex justify-center items-center gap-6 m-10">
 			<label for="weight_consistency">
 				<span class="sr-only">Weight</span>
-				<select bind:value={weightInputValue} name="weight" id="weight" class="text-white p-3 bg-base-100">
+				<select bind:value={weightInputValue} name="weight" id="weight" class="text-white p-3">
 					<option value="" disabled selected>Weight</option>
 					<option value="0">0</option>
 					<option value="5">5</option>
