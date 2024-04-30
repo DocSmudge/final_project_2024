@@ -106,7 +106,7 @@
 	<aside class="flex-1">
 		<h3 class="text-center py-5">Stool Tracker</h3>
 		<div class="flex justify-center items-center gap-6 m-10">
-			<label for="poopy_consitency">
+			<label for="poopy_consistency">
 				<span class="sr-only">Consistency</span>
 				<select
 					bind:value={stoolInputValue}

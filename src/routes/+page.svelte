@@ -338,11 +338,11 @@
 			<!--*--------------------------------- -->
 
 			<!--*------------WEIGHT TRACKER DIV-------------->
-			<div class="overflow-x-auto bg-base-100 flex justify-center m-auto w-5/6 rounded-lg mt-10">
+	
 				<div>
 					<WeightChart name={pet.name} weight={pet.weight} />
 				</div>
-			</div>
+	
 
 			<!--*----------------------------------->
 

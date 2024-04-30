@@ -102,11 +102,11 @@
 	});
 </script>
 
-<div class="container h-fit my-8 mx-auto p-5 flex flex-col">
+<div class="container bg-base-100 w-5/6 h-fit my-10 mx-auto p-5 flex rounded-lg">
 	<aside class="flex-1">
-		<h3 class="text-center">Weight Tracker</h3>
-		<div class="flex justify-center items-center gap-6 mt-2 mb-10">
-			<label class=" text-white" for="weight_consitency">
+		<h3 class="text-center py-5">Weight Tracker</h3>
+		<div class="flex justify-center items-center gap-6 m-10">
+			<label for="weight_consistency">
 				<span class="sr-only">Weight</span>
 				<select bind:value={weightInputValue} name="weight" id="weight" class="text-white p-3 bg-base-100">
 					<option value="" disabled selected>Weight</option>
